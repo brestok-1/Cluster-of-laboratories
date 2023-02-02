@@ -200,3 +200,23 @@ a {
     margin-right: 20px;
     font-size: 25px;
 }
+
+/*Video News*/
+
+.video-news {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-news iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-width: 0;
+    outline-width: 0;
+}

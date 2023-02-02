@@ -1,0 +1,63 @@
+{% extends 'cluster/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- New -->
+    <div class="news-title text-center fs-2 mt-4">
+        {{ object.title }}
+    </div>
+
+    <div class="row">
+        <div class="time-created-updated d-flex justify-content-between mt-3">
+            <span class="date text-black-50 ps-0">Дата создания : {{ object.time_created }}</span>
+            <span class="date text-black-50 ps-0">Последнее обновление : {{ object.time_updated }}</span>
+        </div>
+    </div>
+
+    <!-- Сarousel -->
+
+    <div id="carouselExampleCaptions" class="carousel slide mt-3" data-bs-ride="false">
+        <div class="carousel-indicators">
+            {% for image in object.get_images %}
+                <button type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="{{ forloop.counter|add:-1 }}" class="{% if forloop.first %}active{% endif %}"
+                        aria-current="true" aria-label="Slide {{ forloop.counter }}"></button>
+            {% endfor %}
+
+        </div>
+        <div class="carousel-inner">
+            {% for image in object.get_images %}
+                <div class="carousel-item {% if forloop.first %} active {% endif %} hz">
+                <img src="{{ image.image.url }}" class="d-block w-100 rounded"
+                     alt="...">
+
+            {#                <div class="carousel-caption d-none d-md-block">#}
+            {#                    <h2>Мужчина</h2>#}
+            {#                    <p>Гений, филантроп, мультимиллиардер</p>#}
+            {#                </div>#}
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Следующий</span>
+        </button>
+    </div>
+
+    <div class="news-content mt-3 fs-5 ">
+        {{ object.content|linebreaks }}
+    </div>
+
+    {% if object.video_link %}
+    <div class="video-news mt-3 mb-5">
+        {% autoescape off %}{{ object.video_link }}{% endautoescape %}
+    </div>
+    {% endif %}
+
+{% endblock %}

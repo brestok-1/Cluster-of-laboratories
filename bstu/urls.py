@@ -23,7 +23,7 @@ from cluster.views import IndexView
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', IndexView.as_view(), name='index'),
-    # path('products/', include('products.urls', namespace='products')),
+    path('cluster/', include('cluster.urls', namespace='cluster')),
     # path('users/', include('users.urls', namespace='users')),
     # path('orders/', include('orders.urls', namespace='orders')),
 ]

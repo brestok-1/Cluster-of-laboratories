@@ -10,6 +10,7 @@ class News(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', default='')
     time_created = models.DateField(auto_now_add=True, verbose_name='Время создания')
     time_updated = models.DateField(auto_now=True, verbose_name='Время обновления')
+    video_link = models.CharField(max_length=1000, verbose_name='Ссылка на видео', blank=True)
 
     class Meta:
         verbose_name = 'Новость'
@@ -18,12 +19,17 @@ class News(models.Model):
     def __str__(self):
         return f'Новость : {self.title}'
 
+    def get_images(self):
+        return NewsImg.objects.filter(news_id=self.id)
+
 
 class NewsImg(models.Model):
     image = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, verbose_name='Изображение')
     news = models.ForeignKey(to=News, on_delete=models.CASCADE, verbose_name='Привязать к новости:')
 
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
 
-class NewsVideo(models.Model):
-    video_link = models.URLField(verbose_name='Ссылка на видео')
-    news = models.ForeignKey(to=News, on_delete=models.CASCADE, blank=True, verbose_name='Привязать к новости:')
+    def __str__(self):
+        return f'Изображение {self.id}'

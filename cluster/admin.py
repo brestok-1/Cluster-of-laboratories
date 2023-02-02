@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import News, NewsImg, NewsVideo
+from .models import News, NewsImg
 
 
 # Register your models here.
@@ -11,15 +11,10 @@ class NewsImgAdmin(admin.TabularInline):
     extra = 0
 
 
-class NewsVideoAdmin(admin.TabularInline):
-    model = NewsVideo
-    fields = ('video_link',)
-    extra = 0
-
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    inlines = (NewsImgAdmin, NewsVideoAdmin)
+    inlines = (NewsImgAdmin,)
     search_fields = ('title',)
-    fields = ('title', 'slug', 'content', 'time_created', 'time_updated')
-    prepopulated_fields = {'slug': ('title', )}
+    fields = ('title', 'slug', 'content', 'time_created', 'time_updated', 'video_link')
+    prepopulated_fields = {'slug': ('title',)}
     readonly_fields = ('time_created', 'time_updated',)
