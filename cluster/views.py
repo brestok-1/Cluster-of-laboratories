@@ -18,6 +18,12 @@ class IndexView(CommonMixin, TemplateView):
     #     return News.objects.all()[:5]
 
 
+class ListNewsView(CommonMixin, ListView):
+    title = 'Новости'
+    model = News
+    template_name = 'cluster/list_news.html'
+
+
 class OneNewView(CommonMixin, DetailView):
     template_name = 'cluster/one_new.html'
     slug_url_kwarg = 'new_slug'

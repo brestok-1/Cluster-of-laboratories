@@ -1,0 +1,38 @@
+{% extends 'cluster/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="list-news-title text-center mt-4 fs-3">
+        Новости
+    </div>
+
+    <div class="list-news-words mt-3 fs-6">
+        Добро пожаловать в наш раздел новостей. Здесь вы можете ознакомиться со всеми событиями, происходящими в нашем
+        кластере
+    </div>
+
+
+
+    <div class="list-news mt-3">
+        {% for object in object_list %}
+            <div class="one-new border-success border rounded mb-3 ">
+                <div class="text-center fs-5 mt-2">
+                    {{ object.title }}
+                </div>
+                <div class="row">
+                    <div class="time-created-updated d-flex justify-content-between mt-3 px-1 px-md-4">
+                        <span class="date text-black-50 ps-0 text-center">Дата создания : {{ object.time_created }}</span>
+                        <span class="date text-black-50 ps-0 text-center">Последнее обновление : {{ object.time_updated }}</span>
+                    </div>
+                </div>
+                <div class="new-content px-1 px-md-2">
+                    {{ object.content|linebreaks|truncatewords:40 }}
+                </div>
+                <div class="d-flex justify-content-center my-2">
+                    <a href="{% url 'cluster:one_new' object.slug %}" class="btn btn-success">Посмотреть</a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
