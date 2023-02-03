@@ -7,13 +7,12 @@ from django.views.generic import ListView, TemplateView, DetailView
 
 from common.views import CommonMixin
 
-from .models import News, NewsImg
+from .models import News, Students
 
 
 class IndexView(CommonMixin, TemplateView):
     template_name = 'cluster/index.html'
     title = 'Добро пожаловать на наш кластер'
-
     # def get_queryset(self):
     #     return News.objects.all()[:5]
 
@@ -32,4 +31,15 @@ class OneNewView(CommonMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(OneNewView, self).get_context_data(**kwargs)
         context['title'] = f'Новости - {self.object.title}'
+        return context
+
+
+class StudentsView(CommonMixin, DetailView):
+    template_name = 'cluster/student.html'
+    model = Students
+    slug_url_kwarg = 'student_slug'
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentsView, self).get_context_data(**kwargs)
+        context['title'] = f'Вопрос : {self.object.title}'
         return context

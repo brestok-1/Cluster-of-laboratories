@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
-    'cluster'
+    'cluster',
+    'industrial_electronics',
 
 ]
 
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.request',
                 'cluster.context_processors.news',
+                # 'cluster.context_processors.Students',
             ],
         },
     },

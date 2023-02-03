@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Кластер</a>
+                    <a class="nav-link" href="{% url 'index' %}">Кластер</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Промышленная электроника</a>
@@ -87,6 +87,12 @@
                     <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - BIM </a>
                     <a href="#" class="list-group-item list-group-item-action">Виртуальная экскурсия</a>
                     <a href="#" class="list-group-item list-group-item-action">Студентам</a>
+
+                    {% for student in students_q %}
+                        <a href="{% url 'cluster:students' student.slug %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - {{ student.title }}</a>
+                    {% endfor %}
+
+
                     <a href="#" class="list-group-item list-group-item-action">Партнеры</a>
                     <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Группа компаний
                         Санта</a>

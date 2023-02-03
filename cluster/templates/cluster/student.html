@@ -1,0 +1,12 @@
+{% extends 'cluster/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="student-title fs-4 text-center mt-4">
+        {{ object.title }}
+    </div>
+
+    <div class="student-content fs-6 mt-3">
+        {{ object.content }}
+    </div>
+{% endblock %}
