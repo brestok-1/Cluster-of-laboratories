@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', IndexView.as_view(), name='index'),
     path('cluster/', include('cluster.urls', namespace='cluster')),
-    # path('users/', include('users.urls', namespace='users')),
-    # path('orders/', include('orders.urls', namespace='orders')),
+    path('robotics/', include('robotics.urls', namespace='robotics')),
+    path('technical-vision/', include('technical_vision.urls', namespace='technical_vision'))
 ]
 
 if settings.DEBUG:

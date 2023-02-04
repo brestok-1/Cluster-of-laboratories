@@ -38,8 +38,10 @@ INSTALLED_APPS = [
 
 
     'cluster',
-    'industrial_electronics',
-
+    'robotics',
+    'BIM',
+    'agriculture',
+    'technical_vision',
 ]
 
 MIDDLEWARE = [
