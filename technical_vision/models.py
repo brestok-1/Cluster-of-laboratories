@@ -1,24 +1,33 @@
 from django.db import models
 
-import robotics.models
+from cluster.mixins import Technologies, TechnologiesImg, Projects, ProjectsImg, Courses
 
 
 # Create your models here.
-class Technologies(robotics.models.Technologies):
-    pass
+class TechnologiesVision(Technologies):
+    class Meta:
+        verbose_name = verbose_name_plural = 'Технологии'
 
 
-class TechnologiesImg(robotics.models.TechnologiesImg):
-    pass
+class TechnologiesImgVision(TechnologiesImg):
+    owner = models.ForeignKey(to=TechnologiesVision, on_delete=models.CASCADE, verbose_name="Привязать изображения к")
+
+    class Meta:
+        verbose_name_plural = verbose_name = 'Изображения Технологии'
 
 
-class Projects(robotics.models.Projects):
-    pass
+class ProjectsVision(Projects):
+    class Meta:
+        verbose_name = verbose_name_plural = 'Проект'
 
 
-class ProjectsImg(robotics.models.ProjectsImg):
-    pass
+class ProjectsImgVision(ProjectsImg):
+    owner = models.ForeignKey(to=ProjectsVision, on_delete=models.CASCADE, verbose_name="Привязать изображения к")
+
+    class Meta:
+        verbose_name_plural = verbose_name = 'Изображения для технологии'
 
 
-class Courses(robotics.models.Courses):
-    pass
+class CoursesVision(Courses):
+    class Meta:
+        verbose_name_plural = verbose_name = 'Курсы'

@@ -1,14 +1,16 @@
 from django.contrib import admin
 
-from robotics.admin import TechnologiesImgAdmin, TechnologiesAdmin
-# Register your models here.
-from .models import *
+from technical_vision.models import TechnologiesVision, TechnologiesImgVision
 
 
-class TechnologiesVisionImgAdmin(TechnologiesImgAdmin):
-    pass
+class TechnologiesImgAdmin(admin.TabularInline):
+    model = TechnologiesImgVision
+    fields = ('img',)
+    extra = 1
 
 
-@admin.register(Technologies)
-class TechnologiesVisionAdmin(TechnologiesAdmin):
-    pass
+@admin.register(TechnologiesVision)
+class TechnologiesAdmin(admin.ModelAdmin):
+    inlines = (TechnologiesImgAdmin,)
+    search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
