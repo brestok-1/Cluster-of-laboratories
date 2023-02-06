@@ -1,20 +1,25 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from django.core.cache import cache
-from django.http import HttpResponseRedirect
-from django.shortcuts import redirect
+from django.db.models import Q
 from django.views.generic import ListView, TemplateView, DetailView
 
 from common.views import CommonMixin
 
 from .models import News, Students
+from BIM.models import *
+from agriculture.models import *
+from technical_vision.models import *
+from robotics.models import *
 
 
 class IndexView(CommonMixin, TemplateView):
     template_name = 'cluster/index.html'
     title = 'Добро пожаловать на наш кластер'
-    # def get_queryset(self):
-    #     return News.objects.all()[:5]
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        total_arr = list(ProjectsRobotics.objects.all()) + list(
+            ProjectsVision.objects.all()) + list(ProjectsAgriculture.objects.all()) + list(ProjectsBIM.objects.all())
+        context['projects'] = sorted(total_arr, key=lambda x: x.time_created, reverse=True)[:5]
+        return context
 
 
 class ListNewsView(CommonMixin, ListView):

@@ -220,3 +220,23 @@ a {
     border-width: 0;
     outline-width: 0;
 }
+
+
+.accordion {
+    --bs-accordion-color: #212529;
+    --bs-accordion-bg: #fff;
+    --bs-accordion-border-width: 0;
+    --bs-accordion-border-radius: 0;
+    --bs-accordion-btn-padding-x: 1rem;
+    --bs-accordion-btn-padding-y: 0.75rem;
+    --bs-accordion-btn-color: #212529;
+    --bs-accordion-btn-focus-border-color: #000000;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0;
+    --bs-accordion-body-padding-x: 1rem;
+    --bs-accordion-body-padding-y: 1.2rem;
+    --bs-accordion-active-color: #030303;
+    --bs-accordion-active-bg: #ffffff;
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+    border-left: 1px solid rgba(0, 0, 0, 0.125);
+    font-size: 12px;
+}

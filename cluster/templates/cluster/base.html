@@ -49,10 +49,10 @@
                     <a class="nav-link" href="{% url 'technical_vision:index' %}">Техническое зрение</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Точное земледелие</a>
+                    <a class="nav-link" href="{% url 'agriculture:index' %}">Точное земледелие</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">BIM</a>
+                    <a class="nav-link" href="{% url 'BIM:index' %}">BIM</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
@@ -75,22 +75,40 @@
             </div>
             <div class="sidebar-toggle">
                 <ul class="list-group">
-                    <a href="{% url 'index' %}" class="list-group-item list-group-item-action active">О кластере</a>
+                    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">Кластер</a>
                     <a href="{% url 'cluster:list_news' %}" class="list-group-item list-group-item-action">Новости</a>
-                    <a href="#" class="list-group-item list-group-item-action ">Лаборатории</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Промышленная
+                    <a href="" class="list-group-item list-group-item-action ">Лаборатории</a>
+                    <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
+                        - Промышленная
                         электроника</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Техническое
+                    <a href="{% url 'technical_vision:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
+                        - Техническое
                         зрение </a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Точное
+                    <a href="{% url 'agriculture:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
+                        - Точное
                         земледелие </a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - BIM </a>
+                    <a href="{% url 'BIM:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; -
+                        BIM </a>
                     <a href="#" class="list-group-item list-group-item-action">Виртуальная экскурсия</a>
-                    <a href="#" class="list-group-item list-group-item-action">Студентам</a>
 
-                    {% for student in students_q %}
-                        <a href="{% url 'cluster:students' student.slug %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - {{ student.title }}</a>
-                    {% endfor %}
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Студентам
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <a href="d-block">Ссылка на первую статью для студентов</a>
+                                    <a href="d-block">Ссылка на вторую статью для студентов</a>
+                                    <a href="d-block">Ссылка на третью статью для студентов</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                     <a href="#" class="list-group-item list-group-item-action">Партнеры</a>
@@ -120,7 +138,7 @@
         <!-- Recent articles -->
         <div class="col-md-3">
             <div class="comment border-comment mb-4 mt-4">
-                <div class="py-3 ps-3" id="MakeComment">Recent articles:</div>
+                <div class="py-3 ps-3" id="MakeComment">Последние новости:</div>
 
                 {% for one_new in news_list %}
                     {% if not forloop.last %}
@@ -152,6 +170,45 @@
 
             </div>
 
+
+            <div class="comment border-comment mb-4 mt-4">
+                <div class="py-3 ps-3" id="MakeComment">Последние проекты:</div>
+
+                {% for project in projects %}
+                    {% if not forloop.last %}
+                        <div class="my-3 px-3 recent-article mb-2">
+                            <div class="article-title fs-4 mt-3">
+                                {{ project.name }}
+                            </div>
+                            <span class="text-black-50 ps-0">{{ project.time_created }}</span>
+                            <div class="article-content mt-2">
+                                {{ project.description|truncatewords:10 }}
+                            </div>
+                            <span class="text-success">{{ project.owner }}</span>
+                            <div class="article-link mt-2">
+                                <a href="" class="btn btn-outline-success mb-3">View</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="my-3 px-3 mb-0">
+                            <div class="article-title fs-4 mt-3">
+                                {{ project.name }}
+                            </div>
+                            <span class="text-black-50 ps-0">{{ project.time_created }}</span>
+                            <div class="article-content">
+                                {{ project.description|truncatewords:10 }}
+                            </div>
+                            <span class="text-success">{{ project.owner }}</span>
+                            <div class="article-link mt-2">
+                                <a href="" class="btn btn-outline-success mb-3">View</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+
         </div>
     </div>
 </div>
@@ -181,7 +238,7 @@
                             <div class="line-footer my-2"></div>
                             <div class="footer-text mt-4 d-flex justify-content-between">
                                 <a href="" class="footer-icons"><i class="fab fa-facebook-f"></i></a>
-                                <a href="" class="footer-icons"><i class="fa-brands fa-twitter"></i></i></a>
+                                <a href="" class="footer-icons"><i class="fa-brands fa-twitter"></i></a>
                                 <a href="" class="footer-icons"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>

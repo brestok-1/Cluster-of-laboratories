@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='CoursesRobotics',
+            name='CoursesAgriculture',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, verbose_name='Название курса')),
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='ProjectsRobotics',
+            name='ProjectsAgriculture',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, verbose_name='Название проекта')),
@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='TechnologiesRobotics',
+            name='TechnologiesAgriculture',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255, verbose_name='Имя технологии')),
@@ -58,11 +58,11 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='TechnologiesImgRobotics',
+            name='TechnologiesImgAgriculture',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('img', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/', verbose_name='Изображение')),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='robotics.technologiesrobotics', verbose_name='Привязать изображения к')),
+                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='agriculture.technologiesagriculture', verbose_name='Привязать изображения к')),
             ],
             options={
                 'verbose_name': 'Изображения Технологии',
@@ -70,11 +70,11 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='ProjectsImgRobotics',
+            name='ProjectsImgAgriculture',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('img', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/', verbose_name='Изображение')),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='robotics.projectsrobotics', verbose_name='Привязать изображения к')),
+                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='agriculture.projectsagriculture', verbose_name='Привязать изображения к')),
             ],
             options={
                 'verbose_name': 'Изображения для технологии',

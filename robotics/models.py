@@ -5,6 +5,7 @@ from cluster.mixins import Technologies, TechnologiesImg, Projects, ProjectsImg,
 
 # Create your models here.
 class TechnologiesRobotics(Technologies):
+    owner = models.CharField(max_length=255, default='Лаборатория Промышленной электроники')
     class Meta:
         verbose_name = verbose_name_plural = 'Технологии'
 
@@ -16,8 +17,9 @@ class TechnologiesImgRobotics(TechnologiesImg):
 
 
 class ProjectsRobotics(Projects):
+    owner = models.CharField(max_length=255, default='Лаборатория Промышленной электроники')
     class Meta:
-        verbose_name = verbose_name_plural = 'Проект'
+        verbose_name = verbose_name_plural = 'Проекты'
 
 
 class ProjectsImgRobotics(ProjectsImg):
@@ -27,6 +29,7 @@ class ProjectsImgRobotics(ProjectsImg):
 
 
 class CoursesRobotics(Courses):
+    owner = models.CharField(max_length=255, default='Лаборатория Промышленной электроники')
 
     class Meta:
         verbose_name_plural = verbose_name = 'Курсы'

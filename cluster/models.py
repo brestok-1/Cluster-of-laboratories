@@ -8,7 +8,7 @@ class News(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок новости')
     content = models.TextField(verbose_name='Содержание', default='')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', default='')
-    time_created = models.DateField(auto_now_add=True, verbose_name='Время создания')
+    time_created = models.DateField(verbose_name='Время создания')
     time_updated = models.DateField(auto_now=True, verbose_name='Время обновления')
     video_link = models.CharField(max_length=1000, verbose_name='Ссылка на видео', blank=True)
 

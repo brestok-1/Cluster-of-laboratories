@@ -25,7 +25,9 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('cluster/', include('cluster.urls', namespace='cluster')),
     path('robotics/', include('robotics.urls', namespace='robotics')),
-    path('technical-vision/', include('technical_vision.urls', namespace='technical_vision'))
+    path('technical-vision/', include('technical_vision.urls', namespace='technical_vision')),
+    path('BIM/', include('BIM.urls', namespace='BIM')),
+    path('agriculture/', include('agriculture.urls', namespace='agriculture')),
 ]
 
 if settings.DEBUG:

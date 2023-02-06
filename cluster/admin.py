@@ -24,4 +24,4 @@ class NewsAdmin(admin.ModelAdmin):
 class StudentsAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
     fields = ('title', 'slug', 'content')
-    prepopulated_fields = {'slug' : ('title', )}
+    prepopulated_fields = {'slug': ('title',)}
