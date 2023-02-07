@@ -1,6 +1,5 @@
-{% extends 'cluster/base.html' %}
+{% extends 'robotics/laboratory_base.html' %}
 {% load static %}
-
 {% block content %}
     <!-- New -->
     <div class="news-title text-center fs-2 mt-4">
@@ -10,7 +9,6 @@
     <div class="row">
         <div class="time-created-updated d-flex justify-content-between mt-3">
             <span class="date text-black-50 ps-0">Дата создания : {{ object.time_created }}</span>
-            <span class="date text-black-50 ps-0">Последнее обновление : {{ object.time_updated }}</span>
         </div>
     </div>
 
@@ -28,7 +26,7 @@
         <div class="carousel-inner">
             {% for image in object.get_images %}
                 <div class="carousel-item {% if forloop.first %} active {% endif %} hz">
-                    <img src="{{ image.image.url }}" class="d-block w-100 rounded"
+                    <img src="{{ image.img.url }}" class="d-block w-100 rounded"
                          alt="...">
                 </div>
             {% endfor %}
@@ -44,6 +42,7 @@
             <span class="visually-hidden">Следующий</span>
         </button>
     </div>
+
 
     <div class="news-content mt-3 fs-5 ">
         {{ object.description|linebreaks }}

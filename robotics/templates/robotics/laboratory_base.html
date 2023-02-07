@@ -75,56 +75,75 @@
             </div>
             <div class="sidebar-toggle">
                 <ul class="list-group">
-                    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">Кластер</a>
-                    <a href="{% url 'cluster:list_news' %}" class="list-group-item list-group-item-action">Новости</a>
-                    <a href="" class="list-group-item list-group-item-action ">Лаборатории</a>
-                    <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
-                        - Промышленная
-                        электроника</a>
-                    <a href="{% url 'technical_vision:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
-                        - Техническое
-                        зрение </a>
-                    <a href="{% url 'agriculture:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
-                        - Точное
-                        земледелие </a>
-                    <a href="{% url 'BIM:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; -
-                        BIM </a>
-                    <a href="#" class="list-group-item list-group-item-action">Виртуальная экскурсия</a>
+                    <ul class="list-group">
+                        <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action active">О
+                            лаборатории</a>
 
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Студентам
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <a href="d-block">Ссылка на первую статью для студентов</a>
-                                    <a href="d-block">Ссылка на вторую статью для студентов</a>
-                                    <a href="d-block">Ссылка на третью статью для студентов</a>
+
+                        <div class="accordion border-bottom" id="accordionExample2">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo2" aria-expanded="false"
+                                            aria-controls="collapseTwo2">
+                                        Технологии
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2"
+                                     data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                        {% for technology in technologies %}
+                                            <a class="d-block border-bottom"
+                                               href="{% url 'robotics:tech' technology.slug %}">{{ technology.name }}</a>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        <div class="accordion border-bottom" id="accordionExample1">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo1" aria-expanded="false"
+                                            aria-controls="collapseTwo1">
+                                        Проекты
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1"
+                                     data-bs-parent="#accordionExample1">
+                                    <div class="accordion-body">
+                                        {% for project in projects %}
+                                            <a class="d-block border-bottom"
+                                               href="{% url 'robotics:project' project.slug %}">{{ project.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <a href="#" class="list-group-item list-group-item-action">Партнеры</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Группа компаний
-                        Санта</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Санта Бремор </a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Савушкин
-                        продукт </a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Системы
-                        промышленной автоматизации</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Тексастрой</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Технологии точного
-                        земледелия</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Юкола-Инфо
-                        Брест</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - ИТ-Энерджи</a>
+                        <div class="accordion border-bottom" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                        Обучение
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                     data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {% for cours in courses %}
+                                            <a class="d-block border-bottom">{{ cours.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ul>
+
 
                 </ul>
             </div>
@@ -137,39 +156,6 @@
 
         <!-- Recent articles -->
         <div class="col-md-3">
-            <div class="comment border-comment mb-4 mt-4">
-                <div class="py-3 ps-3" id="MakeComment">Последние новости:</div>
-
-                {% for one_new in news_list %}
-                    {% if not forloop.last %}
-                        <div class="my-3 px-3 recent-article mb-2">
-                            <div class="article-title fs-4 mt-3">
-                                {{ one_new.name|title }}
-                            </div>
-                            <div class="article-content mt-2">
-                                {{ one_new.description|truncatewords:10 }}
-                            </div>
-                            <div class="article-link mt-2">
-                                <a href="{% url 'cluster:one_new' one_new.slug %}" class="btn btn-outline-success mb-3">View</a>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div class="my-3 px-3 mb-0">
-                            <div class="article-title fs-4 mt-3">
-                                {{ one_new.name|title }}
-                            </div>
-                            <div class="article-content mt-2">
-                                {{ one_new.description|truncatewords:10 }}
-                            </div>
-                            <div class="article-link mt-2">
-                                <a href="{% url 'cluster:one_new' one_new.slug %}" class="btn btn-outline-success mb-3">View</a>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-
-            </div>
-
 
             <div class="comment border-comment mb-4 mt-4">
                 <div class="py-3 ps-3" id="MakeComment">Последние проекты:</div>

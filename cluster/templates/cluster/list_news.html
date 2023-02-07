@@ -17,7 +17,7 @@
         {% for object in object_list %}
             <div class="one-new border-success border rounded mb-3 ">
                 <div class="text-center fs-5 mt-2">
-                    {{ object.title }}
+                    {{ object.name }}
                 </div>
                 <div class="row">
                     <div class="time-created-updated d-flex justify-content-between mt-3 px-1 px-md-4">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="new-content px-1 px-md-2">
-                    {{ object.content|linebreaks|truncatewords:40 }}
+                    {{ object.description|linebreaks|truncatewords:40 }}
                 </div>
                 <div class="d-flex justify-content-center my-2">
                     <a href="{% url 'cluster:one_new' object.slug %}" class="btn btn-success">Посмотреть</a>

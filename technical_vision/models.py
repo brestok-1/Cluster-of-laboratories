@@ -10,6 +10,9 @@ class TechnologiesVision(Technologies):
     class Meta:
         verbose_name = verbose_name_plural = 'Технологии'
 
+    def get_images(self):
+        return TechnologiesImgVision.objects.filter(owner_id=self.id)
+
 
 class TechnologiesImgVision(TechnologiesImg):
     owner = models.ForeignKey(to=TechnologiesVision, on_delete=models.CASCADE, verbose_name="Привязать изображения к")

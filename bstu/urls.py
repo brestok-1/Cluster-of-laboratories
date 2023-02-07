@@ -18,11 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from cluster.views import IndexView
+from cluster.views import IndexView, SearchView
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', IndexView.as_view(), name='index'),
+    path('search/', SearchView.as_view(), name='search'),
     path('cluster/', include('cluster.urls', namespace='cluster')),
     path('robotics/', include('robotics.urls', namespace='robotics')),
     path('technical-vision/', include('technical_vision.urls', namespace='technical_vision')),

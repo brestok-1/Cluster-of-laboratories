@@ -14,11 +14,10 @@ class NewsImgAdmin(admin.TabularInline):
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
     inlines = (NewsImgAdmin,)
-    search_fields = ('title',)
-    fields = ('title', 'slug', 'content', 'time_created', 'time_updated', 'video_link')
-    prepopulated_fields = {'slug': ('title',)}
-    readonly_fields = ('time_created', 'time_updated',)
-
+    search_fields = ('name',)
+    fields = ('name', 'slug', 'description', 'time_created', 'time_updated', 'video_link')
+    prepopulated_fields = {'slug': ('name',)}
+    readonly_fields = ('time_updated', )
 
 @admin.register(Students)
 class StudentsAdmin(admin.ModelAdmin):

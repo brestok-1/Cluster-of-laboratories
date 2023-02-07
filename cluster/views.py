@@ -1,4 +1,6 @@
 from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView, TemplateView, DetailView
 
 from common.views import CommonMixin
@@ -35,7 +37,7 @@ class OneNewView(CommonMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(OneNewView, self).get_context_data(**kwargs)
-        context['title'] = f'Новости - {self.object.title}'
+        context['title'] = f'Новости - {self.object.name}'
         return context
 
 
@@ -46,5 +48,27 @@ class StudentsView(CommonMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentsView, self).get_context_data(**kwargs)
-        context['title'] = f'Вопрос : {self.object.title}'
+        context['title'] = f'Вопрос : {self.object.name}'
         return context
+
+
+class SearchView(CommonMixin, ListView):
+    title = 'Результаты поиска'
+    template_name = 'cluster/search.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if not query:
+            return HttpResponseRedirect(reverse('index'))  # we define on what page user is and redirect to this page
+        news_list = list(News.objects.filter(Q(name__icontains=query) | Q(description__icontains=query)))
+        technologies_list = list(
+            TechnologiesVision.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))) + list(
+            TechnologiesRobotics.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))) + list(
+            TechnologiesAgriculture.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))) + list(
+            TechnologiesBIM.objects.filter(Q(name__icontains=query) | Q(description__icontains=query)))
+        projects_list = list(
+            ProjectsVision.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))) + list(
+            ProjectsRobotics.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))) + list(
+            ProjectsAgriculture.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))) + list(
+            ProjectsBIM.objects.filter(Q(name__icontains=query) | Q(description__icontains=query)))
+        return news_list + technologies_list + projects_list

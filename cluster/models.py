@@ -5,8 +5,8 @@ from django.db import models
 
 
 class News(models.Model):
-    title = models.CharField(max_length=255, verbose_name='Заголовок новости')
-    content = models.TextField(verbose_name='Содержание', default='')
+    name = models.CharField(max_length=255, verbose_name='Заголовок новости')
+    description = models.TextField(verbose_name='Содержание', default='')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', default='')
     time_created = models.DateField(verbose_name='Время создания')
     time_updated = models.DateField(auto_now=True, verbose_name='Время обновления')
@@ -17,7 +17,7 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
 
     def __str__(self):
-        return f'Новость : {self.title}'
+        return f'Новость : {self.name}'
 
     def get_images(self):
         return NewsImg.objects.filter(news_id=self.id)

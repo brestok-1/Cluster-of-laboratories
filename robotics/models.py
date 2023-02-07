@@ -6,24 +6,34 @@ from cluster.mixins import Technologies, TechnologiesImg, Projects, ProjectsImg,
 # Create your models here.
 class TechnologiesRobotics(Technologies):
     owner = models.CharField(max_length=255, default='Лаборатория Промышленной электроники')
+
     class Meta:
         verbose_name = verbose_name_plural = 'Технологии'
+
+    def get_images(self):
+        return TechnologiesImgRobotics.objects.filter(owner_id=self.id)
 
 
 class TechnologiesImgRobotics(TechnologiesImg):
     owner = models.ForeignKey(to=TechnologiesRobotics, on_delete=models.CASCADE, verbose_name="Привязать изображения к")
+
     class Meta:
         verbose_name_plural = verbose_name = 'Изображения Технологии'
 
 
 class ProjectsRobotics(Projects):
     owner = models.CharField(max_length=255, default='Лаборатория Промышленной электроники')
+
     class Meta:
         verbose_name = verbose_name_plural = 'Проекты'
+
+    def get_images(self):
+        return ProjectsImgRobotics.objects.filter(owner_id=self.id)
 
 
 class ProjectsImgRobotics(ProjectsImg):
     owner = models.ForeignKey(to=ProjectsRobotics, on_delete=models.CASCADE, verbose_name="Привязать изображения к")
+
     class Meta:
         verbose_name_plural = verbose_name = 'Изображения для технологии'
 

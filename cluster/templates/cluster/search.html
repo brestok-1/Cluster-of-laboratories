@@ -1,0 +1,10 @@
+{% extends 'cluster/base.html' %}
+{% block content %}
+    {% if object_list %}
+        {% for object in object_list %}
+            <a href="">{{ object.name }}</a>
+        {% endfor %}
+    {% else %}
+        Not Found
+    {% endif %}
+{% endblock %}

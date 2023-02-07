@@ -10,4 +10,3 @@ class TechnicalVisionMainView(CommonMixin, TemplateView):
     template_name = 'technical_vision/vision_index.html'
     title = "Лаборатория Технического Зрения"
 
-
