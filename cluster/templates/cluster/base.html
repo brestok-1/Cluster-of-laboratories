@@ -43,16 +43,16 @@
                     <a class="nav-link" href="{% url 'index' %}">Кластер</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:index' %}">Промышленная робототехника</a>
+                    <a class="nav-link" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'technical_vision:index' %}">Техническое зрение</a>
+                    <a class="nav-link" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'agriculture:index' %}">Точное земледелие</a>
+                    <a class="nav-link" href="{% url 'robotics:agriculture' %}">Точное земледелие</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'BIM:index' %}">BIM</a>
+                    <a class="nav-link" href="{% url 'robotics:BIM' %}">BIM</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
@@ -78,17 +78,17 @@
                     <a href="{% url 'index' %}" class="list-group-item list-group-item-action">Кластер</a>
                     <a href="{% url 'cluster:list_news' %}" class="list-group-item list-group-item-action">Новости</a>
                     <a href="" class="list-group-item list-group-item-action ">Лаборатории</a>
-                    <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
-                        - Промышленная
-                        электроника</a>
-                    <a href="{% url 'technical_vision:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
-                        - Техническое
-                        зрение </a>
-                    <a href="{% url 'agriculture:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;
-                        - Точное
-                        земледелие </a>
-                    <a href="{% url 'BIM:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; -
-                        BIM </a>
+{#                    <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;#}
+{#                        - Промышленная#}
+{#                        электроника</a>#}
+{#                    <a href="{% url 'technical_vision:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;#}
+{#                        - Техническое#}
+{#                        зрение </a>#}
+{#                    <a href="{% url 'agriculture_index.html:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;#}
+{#                        - Точное#}
+{#                        земледелие </a>#}
+{#                    <a href="{% url 'BIM:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; -#}
+{#                        BIM </a>#}
                     <a href="#" class="list-group-item list-group-item-action">Виртуальная экскурсия</a>
 
                     <div class="accordion" id="accordionExample">
@@ -184,9 +184,9 @@
                             <div class="article-content mt-2">
                                 {{ project.description|truncatewords:10 }}
                             </div>
-                            <span class="text-success">{{ project.owner }}</span>
+                            <span class="text-success">{{ project.owner.name }}</span>
                             <div class="article-link mt-2">
-                                <a href="" class="btn btn-outline-success mb-3">View</a>
+                                <a href="{% url 'robotics:project' project.slug %}" class="btn btn-outline-success mb-3">View</a>
                             </div>
                         </div>
                     {% else %}
@@ -198,9 +198,9 @@
                             <div class="article-content">
                                 {{ project.description|truncatewords:10 }}
                             </div>
-                            <span class="text-success">{{ project.owner }}</span>
+                            <span class="text-success">{{ project.owner.name }}</span>
                             <div class="article-link mt-2">
-                                <a href="" class="btn btn-outline-success mb-3">View</a>
+                                <a href="{% url 'robotics:project' project.slug %}" class="btn btn-outline-success mb-3">View</a>
                             </div>
                         </div>
                     {% endif %}

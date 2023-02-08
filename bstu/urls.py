@@ -25,10 +25,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('search/', SearchView.as_view(), name='search'),
     path('cluster/', include('cluster.urls', namespace='cluster')),
-    path('robotics/', include('robotics.urls', namespace='robotics')),
-    path('technical-vision/', include('technical_vision.urls', namespace='technical_vision')),
-    path('BIM/', include('BIM.urls', namespace='BIM')),
-    path('agriculture/', include('agriculture.urls', namespace='agriculture')),
+    path('laboratory/', include('robotics.urls', namespace='robotics')),
 ]
 
 if settings.DEBUG:

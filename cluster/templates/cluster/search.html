@@ -1,10 +1,19 @@
 {% extends 'cluster/base.html' %}
 {% block content %}
+    <h2 class="mt-3">Результаты поиска:</h2>
     {% if object_list %}
         {% for object in object_list %}
-            <a href="">{{ object.name }}</a>
+
+            {% if object.type == 'Projects' %}
+                <a href="{% url 'robotics:project' object.slug %}" class="d-block mt-4 fs-4 ">{{ object.name }}</a>
+            {% elif object.type == 'News' %}
+                <a href="{% url 'cluster:one_new' object.slug %}" class="d-block mt-4 fs-4 ">{{ object.name }}</a>
+            {% else %}
+                <a href="{% url 'robotics:tech' object.slug %}" class="d-block mt-4 fs-4 ">{{ object.name }}</a>
+            {% endif %}
+
         {% endfor %}
     {% else %}
-        Not Found
+        <h1 class="mt-4">По вашему запросу ничего не найдено</h1>
     {% endif %}
 {% endblock %}

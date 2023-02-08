@@ -43,16 +43,16 @@
                     <a class="nav-link" href="{% url 'index' %}">Кластер</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:index' %}">Промышленная робототехника</a>
+                    <a class="nav-link" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'technical_vision:index' %}">Техническое зрение</a>
+                    <a class="nav-link" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'agriculture:index' %}">Точное земледелие</a>
+                    <a class="nav-link" href="{% url 'robotics:agriculture' %}">Точное земледелие</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'BIM:index' %}">BIM</a>
+                    <a class="nav-link" href="{% url 'robotics:BIM' %}">BIM</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
@@ -76,7 +76,7 @@
             <div class="sidebar-toggle">
                 <ul class="list-group">
                     <ul class="list-group">
-                        <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action active">О
+                        <a href="{% url 'robotics:robotics' %}" class="list-group-item list-group-item-action active">О
                             лаборатории</a>
 
 
@@ -135,7 +135,8 @@
                                      data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         {% for cours in courses %}
-                                            <a class="d-block border-bottom">{{ cours.name }}</a>
+                                            <a class="d-block border-bottom"
+                                               href="{% url 'robotics:course' cours.slug %}">{{ cours.name }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -150,8 +151,13 @@
         </div>
 
         <div class="col-md-6">
-            {% block content %}
-            {% endblock %}
+            <div class="row">
+
+                {% block content %}
+                {% endblock %}
+
+            </div>
+
         </div>
 
         <!-- Recent articles -->
@@ -172,7 +178,8 @@
                             </div>
                             <span class="text-success">{{ project.owner }}</span>
                             <div class="article-link mt-2">
-                                <a href="" class="btn btn-outline-success mb-3">View</a>
+                                <a href="{% url 'robotics:project' project.slug %}"
+                                   class="btn btn-outline-success mb-3">View</a>
                             </div>
                         </div>
                     {% else %}
@@ -186,7 +193,8 @@
                             </div>
                             <span class="text-success">{{ project.owner }}</span>
                             <div class="article-link mt-2">
-                                <a href="" class="btn btn-outline-success mb-3">View</a>
+                                <a href="{% url 'robotics:project' project.slug %}"
+                                   class="btn btn-outline-success mb-3">View</a>
                             </div>
                         </div>
                     {% endif %}

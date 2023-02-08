@@ -22,6 +22,9 @@ class News(models.Model):
     def get_images(self):
         return NewsImg.objects.filter(news_id=self.id)
 
+    def type(self):
+        return self.__class__.__name__
+
 
 class NewsImg(models.Model):
     image = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, verbose_name='Изображение')

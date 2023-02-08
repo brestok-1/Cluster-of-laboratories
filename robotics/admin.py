@@ -1,39 +1,40 @@
 from django.contrib import admin
 
-from robotics.models import TechnologiesRobotics, TechnologiesImgRobotics, ProjectsImgRobotics, ProjectsRobotics, \
-    CoursesRobotics
+from robotics.models import *
 
 
 class TechnologiesImgAdmin(admin.TabularInline):
-    model = TechnologiesImgRobotics
+    model = TechnologiesImg
     fields = ('img',)
     extra = 1
 
 
-@admin.register(TechnologiesRobotics)
+@admin.register(Technologies)
 class TechnologiesAdmin(admin.ModelAdmin):
     inlines = (TechnologiesImgAdmin,)
-    fields = ('name', 'slug', 'description', 'video_link', 'time_created')
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
 
 
 class ProjectsImgAdmin(admin.TabularInline):
-    model = ProjectsImgRobotics
+    model = ProjectsImg
     fields = ('img',)
     extra = 1
 
 
-@admin.register(ProjectsRobotics)
+@admin.register(Projects)
 class ProjectsAdmin(admin.ModelAdmin):
     inlines = (ProjectsImgAdmin,)
-    fields = ('name', 'slug', 'description', 'video_link', 'time_created')
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
 
 
-@admin.register(CoursesRobotics)
-class CoursesVisionAdmin(admin.ModelAdmin):
+@admin.register(Courses)
+class CoursesAdmin(admin.ModelAdmin):
     search_fields = ('name',)
-    fields = ('name', 'slug', 'durations', 'lector', 'course_link')
     prepopulated_fields = {'slug': ('name',)}
+
+
+# @admin.register(Laboratory)
+# class Laboratory(admin.ModelAdmin):
+#     fields = ('name',)
