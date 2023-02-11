@@ -1,7 +1,7 @@
 from django.urls import path
 
 from robotics.views import RoboticsMainView, BIMMainView, TechnicalVisionView, AgricultureView, TechnologyView, \
-    ProjectsView, CourseView
+    ProjectsView, CourseView, ListProjects
 
 app_name = 'robotics'
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('technologies/<slug:tech_slug>', TechnologyView.as_view(), name='tech'),
     path('projects/<slug:project_slug>', ProjectsView.as_view(), name='project'),
     path('courses/<slug:course_slug>', CourseView.as_view(), name='course'),
+    path('projects/', ListProjects.as_view(), name='list_projects'),
 ]

@@ -117,6 +117,11 @@
                                             <a class="d-block border-bottom"
                                                href="{% url 'robotics:project' project.slug %}">{{ project.name }}</a>
                                         {% endfor %}
+
+{#                                        {% if stop_list %}#}
+{#                                            <a href="{% url 'robotics:list_projects' %}" class="btn btn-success btn-sm mt-3">Посмотреть все проекты</a>#}
+{#                                        {% endif %}#}
+
                                     </div>
                                 </div>
                             </div>

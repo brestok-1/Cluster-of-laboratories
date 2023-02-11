@@ -1,5 +1,7 @@
+import re
+
 from django.shortcuts import render
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, ListView
 
 from common.views import CommonMixin, LaboratoryMixin, DetailMixin
 from robotics.models import *
@@ -11,12 +13,12 @@ class RoboticsMainView(LaboratoryMixin, TemplateView):
     title = 'Лаборатория Промышленной робототехники'
 
 
-class BIMMainView( LaboratoryMixin, TemplateView):
+class BIMMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/BIM_index.html'
     title = 'Лаборатория BIM'
 
 
-class TechnicalVisionView( LaboratoryMixin, TemplateView):
+class TechnicalVisionView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/technical_vision.html'
     title = 'Лаборатория Технического зрения'
 
@@ -56,4 +58,22 @@ class CourseView(DetailMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(CourseView, self).get_context_data(**kwargs)
         context['title'] = f'Курс - "{self.object.name}"'
+        return context
+
+
+class ListProjects(CommonMixin, TemplateView):
+    template_name = 'robotics/list_projects.html'
+    title = 'Проекты'
+
+    def get_context_data(self, **kwargs):
+        context = super(ListProjects, self).get_context_data(**kwargs)
+        prev_path = re.findall(r'\/([a-zA-Z]+-*[a-zA-Z]*)\/?$', self.request.META['HTTP_REFERER'])
+        if prev_path[0] == 'robotics':
+            context['list_projects'] = Projects.objects.filter(owner__name="Лаборатория Промышленной робототехники")
+        elif prev_path[0] == 'technical-vision':
+            context['list_projects'] = Projects.objects.filter(owner__name="Лаборатория Технического зрения")
+        elif prev_path[0] == 'BIM':
+            context['list_projects'] = Projects.objects.filter(owner__name='Лаборатория BIM')
+        elif prev_path[0] == 'agriculture':
+            context['list_projects'] = Projects.objects.filter(owner__name='Лаборатория Точного земледелия')
         return context

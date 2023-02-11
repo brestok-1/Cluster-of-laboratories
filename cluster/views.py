@@ -1,3 +1,5 @@
+import re
+
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
@@ -48,7 +50,7 @@ class SearchView(CommonMixin, ClusterMixin, ListView):
     template_name = 'cluster/search.html'
 
     def get(self, *args, **kwargs):
-        if self.request.GET.get('q') == '':
+        if re.sub(r' ', '', self.request.GET.get('q')) == '':
             return redirect(self.request.META['HTTP_REFERER'])
         else:
             return super(SearchView, self).get(self, *args, **kwargs)
@@ -60,3 +62,4 @@ class SearchView(CommonMixin, ClusterMixin, ListView):
         technologies_list = list(
             Technologies.objects.filter(Q(name__icontains=query) | Q(description__icontains=query)))
         return news_list + projects_list + technologies_list
+

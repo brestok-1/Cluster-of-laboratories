@@ -28,6 +28,7 @@ class LaboratoryMixin:
         context['technologies'] = Technologies.objects.filter(owner__name=self.title)
         context['projects'] = Projects.objects.filter(owner__name=self.title)
         context['courses'] = Courses.objects.filter(owner__name=self.title)
+        context['stop_list'] = 'stop'
         return context
 
 
