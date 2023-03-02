@@ -1,0 +1,9 @@
+{% extends  'robotics/laboratory_base.html' %}
+{% block content %}
+    <div class="text-center fs-3 mt-4">{{ object.name }}</div>
+    <span class="text-black-50">Продолжительность курса - {{ object.durations }} ч.</span>
+    <div class="mt-2 fs-6">Лектор - {{ object.lector }}</div>
+    <p>{{ object.description }}</p>
+    <a href="{{ object.course_link }}">{{ object.course_link }}</a>
+
+{% endblock %}

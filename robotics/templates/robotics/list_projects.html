@@ -1,0 +1,16 @@
+{% extends 'robotics/laboratory_base.html' %}
+{% block content %}
+
+    {% for one_project in list_projects %}
+        <a href="{% url 'robotics:project' one_project.slug %}" class="d-block mt-4 fs-4 ">{{ one_project.name }}</a>
+    {% endfor %}
+
+    {% for c in list_projects %}
+        {% if c.pk == cat_selected %}
+            <li class="selected">{{ c.name }}</li>
+        {% else %}
+            <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
