@@ -22,13 +22,16 @@ class ClusterMixin:
 class LaboratoryMixin:
     title = None
 
+    # selected = None
+
     def get_context_data(self, **kwargs):
         context = super(LaboratoryMixin, self).get_context_data(**kwargs)
         context['title'] = self.title
+        context['selected'] = context['title']
         context['technologies'] = Technologies.objects.filter(owner__name=self.title)
         context['projects'] = Projects.objects.filter(owner__name=self.title)
         context['courses'] = Courses.objects.filter(owner__name=self.title)
-        context['stop_list'] = 'stop'
+        # context['stop_list'] = 'stop'
         return context
 
 

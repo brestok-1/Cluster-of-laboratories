@@ -1,4 +1,8 @@
 {% extends 'robotics/laboratory_base.html' %}
+{% block aboutlaboratorylink %}
+    <a href="{% url 'robotics:technical_vision' %}" class="list-group-item list-group-item-action ">О
+        лаборатории</a>
+{% endblock %}
 
 {% block content %}
     <h1 class="text-center mt-4">Техническое зрение</h1>

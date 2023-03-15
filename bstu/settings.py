@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django-redis',
+    'django_redis',
 
     'cluster',
     'robotics',

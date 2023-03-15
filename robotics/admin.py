@@ -35,6 +35,6 @@ class CoursesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
-# @admin.register(Laboratory)
-# class Laboratory(admin.ModelAdmin):
-#     fields = ('name',)
+@admin.register(Laboratory)
+class Laboratory(admin.ModelAdmin):
+    fields = ('name',)

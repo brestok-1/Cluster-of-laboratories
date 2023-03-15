@@ -24,7 +24,7 @@ class Technologies(models.Model):
         return TechnologiesImg.objects.filter(owner_id=self.id)
 
     def type(self):
-        return self.__class__.__name__
+        return self.owner.name
 
     class Meta:
         verbose_name = 'Технология'

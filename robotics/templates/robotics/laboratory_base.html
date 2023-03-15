@@ -30,7 +30,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -40,31 +40,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Кластер</a>
+                    <a class="nav-link text-white" href="{% url 'index' %}">Центр</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
+                    <a class="nav-link text-white {% if selected == 'Лаборатория "Промышленная робототехника"' %}nav-active{% endif %}" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
+                    <a class="nav-link text-white {% if selected == 'Лаборатория "Техническое зрение"' %}nav-active{% endif %}" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:agriculture' %}">Точное земледелие</a>
+                    <a class="nav-link text-white {% if selected == 'Лаборатория "Цифровой инжиниринг АПК"' %}nav-active{% endif %}" href="{% url 'robotics:agriculture' %}">Цифровой инжиниринг АПК</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:BIM' %}">BIM</a>
+                    <a class="nav-link text-white {% if selected == 'Лаборатория "BIM"' %}nav-active{% endif %}" href="{% url 'robotics:BIM' %}">BIM</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="q">
-                <button class="btn btn-outline-success" type="submit">Поиск</button>
+                <button class="btn btn-success" type="submit">Поиск</button>
             </form>
         </div>
     </div>
 </nav>
 
+{% block laboratoryphoto %}
 
-<div class="container">
+{% endblock %}
+
+<div class="container-fluid">
     <div class="row">
 
         <!-- Left Sidebar -->
@@ -76,9 +79,9 @@
             <div class="sidebar-toggle">
                 <ul class="list-group">
                     <ul class="list-group">
-                        <a href="{% url 'robotics:robotics' %}" class="list-group-item list-group-item-action active">О
-                            лаборатории</a>
+                        {% block aboutlaboratorylink %}
 
+                        {% endblock %}
 
                         <div class="accordion border-bottom" id="accordionExample2">
                             <div class="accordion-item">

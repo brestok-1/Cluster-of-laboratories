@@ -10,22 +10,21 @@ from robotics.models import *
 # Create your views here.
 class RoboticsMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/robotics_index.html'
-    title = 'Лаборатория Промышленной робототехники'
-
+    title = 'Лаборатория "Промышленная робототехника"'
 
 class BIMMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/BIM_index.html'
-    title = 'Лаборатория BIM'
+    title = 'Лаборатория "BIM"'
 
 
 class TechnicalVisionView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/technical_vision.html'
-    title = 'Лаборатория Технического зрения'
+    title = 'Лаборатория "Техническое зрение"'
 
 
 class AgricultureView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/agriculture_index.html'
-    title = 'Лаборатория Точного земледелия'
+    title = 'Лаборатория "Цифровой инжиниринг АПК"'
 
 
 class TechnologyView(DetailMixin, DetailView):

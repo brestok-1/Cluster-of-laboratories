@@ -30,7 +30,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -40,31 +40,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Кластер</a>
+                    <a class="nav-link text-white nav-active" href="{% url 'index' %}">Центр</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
+                    <a class="nav-link text-white" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
+                    <a class="nav-link text-white" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:agriculture' %}">Точное земледелие</a>
+                    <a class="nav-link text-white" href="{% url 'robotics:agriculture' %}">Точное земледелие</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'robotics:BIM' %}">BIM</a>
+                    <a class="nav-link text-white" href="{% url 'robotics:BIM' %}">BIM</a>
                 </li>
             </ul>
             <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="q">
-                <button class="btn btn-outline-success" type="submit">Поиск</button>
+                <button class="btn btn-success" type="submit">Поиск</button>
             </form>
         </div>
     </div>
 </nav>
 
+{% block mainphoto %}
 
-<div class="container">
+{% endblock %}
+
+<div class="container-fluid">
     <div class="row">
 
         <!-- Left Sidebar -->
@@ -75,20 +78,8 @@
             </div>
             <div class="sidebar-toggle">
                 <ul class="list-group">
-                    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">Кластер</a>
+                    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">Центр Лабораторий</a>
                     <a href="{% url 'cluster:list_news' %}" class="list-group-item list-group-item-action">Новости</a>
-                    <a href="" class="list-group-item list-group-item-action ">Лаборатории</a>
-{#                    <a href="{% url 'robotics:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;#}
-{#                        - Промышленная#}
-{#                        электроника</a>#}
-{#                    <a href="{% url 'technical_vision:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;#}
-{#                        - Техническое#}
-{#                        зрение </a>#}
-{#                    <a href="{% url 'agriculture_index.html:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp;#}
-{#                        - Точное#}
-{#                        земледелие </a>#}
-{#                    <a href="{% url 'BIM:index' %}" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; -#}
-{#                        BIM </a>#}
                     <a href="#" class="list-group-item list-group-item-action">Виртуальная экскурсия</a>
 
                     <div class="accordion" id="accordionExample">
@@ -109,22 +100,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <a href="#" class="list-group-item list-group-item-action">Партнеры</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Группа компаний
-                        Санта</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Санта Бремор </a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Савушкин
-                        продукт </a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Системы
-                        промышленной автоматизации</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Тексастрой</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Технологии точного
-                        земледелия</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - Юкола-Инфо
-                        Брест</a>
-                    <a href="#" class="list-group-item list-group-item-action ">&nbsp;&nbsp;&nbsp; - ИТ-Энерджи</a>
 
                 </ul>
             </div>
