@@ -38,6 +38,7 @@ class LaboratoryMixin:
 class DetailMixin:
     def get_context_data(self, **kwargs):
         context = super(DetailMixin, self).get_context_data(**kwargs)
+        context['selected'] = self.object.owner.name
         context['technologies'] = Technologies.objects.filter(owner__name=self.object.owner.name)
         context['projects'] = Projects.objects.filter(owner__name=self.object.owner.name)
         context['courses'] = Courses.objects.filter(owner__name=self.object.owner.name)

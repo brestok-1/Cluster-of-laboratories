@@ -9,15 +9,14 @@
             <div class="carousel-item active main-photo-box">
                 <img src="{% static 'vendor/img/cluster-photo/cluster.jpg' %}" class="d-block w-100 main-photo"
                      alt="...">
-                <div class="carousel-caption d-none d-md-block">
-{#                    <div class=" fs-2">Центр лабораторий БрГТУ</div>#}
-                </div>
+
             </div>
         </div>
     </div>
-    <div class="py-4 text-center bg-primary fs-4 text-white fst-italic">
-        Центр лабораторий БрГТУ
+    <div class="py-4 name-title">
+        Центр Цифровых лабораторий
     </div>
+
 {% endblock %}
 
 
@@ -79,56 +78,100 @@
 
     <!-- Main content -->
 
-    <div class="info mt-3">
-        Научно-технический центр цифровых технологий Брестского государственного технического университета – лидер в
-        сфере разработок инновационных технологий, систем, изделий, оборудования и продуктов на основе современных
-        цифровых технологий (цифровой инжиниринг, моделирование, сканирование, компьютерные технологии оптимизации,
-        аддитивные технологии).
-    </div>
+    <div class="mt-3">
+        <div class="underline"></div>
+        <div class="news my-3">
+            О центре:
+        </div>
+        <div class="underline"></div>
 
+        <div class="info my-3">
+            Научно-технический центр цифровых технологий Брестского государственного технического университета – лидер в
+            сфере разработок инновационных технологий, систем, изделий, оборудования и продуктов на основе современных
+            цифровых технологий (цифровой инжиниринг, моделирование, сканирование, компьютерные технологии оптимизации,
+            аддитивные технологии).
+            <div class="underline my-3"></div>
+            <p></p>
+            Цели: <br>
+            Поддержка цифровой трансформации и внедрения цифровых технологий на предприятиях Республики Беларусь
+            Оказание консалтинговых услуг для предприятий в области цифровизации и внедрения новых производственных
+            технологий
+            Систематическая подготовка и переподготовка кадров по направлению цифровые технологии производства
+            Разработка комплексных отраслевых решений в области цифровых производственных технологий, элементов и систем
+            Индустрии 4.0 для предприятий
+            {#            <div class="underline"></div>#}
+            <p></p>
+            Состав центра: <br>
+            Учебная научно-практическая лаборатория “Промышленная робототехника”
+            Отраслевая лаборатория “Системы идентификации и промышленная робототехника ”
+            Научная лаборатория “Цифровой инжиниринг в агро-промышленном комплексе”
+            Отраслевая лаборатория “Технологии строительных конструкций”
+            {#            <div class="underline"></div>#}
+            <p></p>
+            Заказчики и партнеры <br>
+            Центр активно сотрудничает с организациями и предприятиями Республики Беларусь в различных областях.
+            Ключевыми заказчиками центра являются известные предприятия: ОАО Савушкин продукт, ООО Санта Бремор СП, ОАО
+            Минский молочный завод №1, ОАО Купалинка, ОАО Берестейский пекарь и др.
+            Для успешного выполнения проектов центр привлекает партнеров: ООО Системы промышленной автоматизации, ООО
+            Технологии точного земледелия, ООО ТэксаСтрой, ООО ИТ-Энерджи, ООО Розум Роботикс, ОДО Юкола-Инфо-Брест, ООО
+            Концерн Р-про
+            {#            <div class="underline"></div>#}
+            <p></p>
+            Технологии и ресурсы центра <br>
+            Инструменты для цифрового инжиниринга: Visual Components, Рациональное производство, Autodesk Revit,
+            Autodesk Inventor, Компас3D, CoppeliaSim, COMSOL Multiphysics
+            Центр оснащен современным оборудованием: коллаборативные роботы UR16, TM12, Pulse70, робот-трипод STS-40,
+            3D-принтер Ultimaker 5S, 3D-сканер, лазерный гравер и др.
+            <p></p>
+            СМИ о центре <br>
+            https://www.sb.by/articles/pro-robotov-spirometr-i-stabilometricheskuyu-platformu.html
+
+
+        </div>
+    </div>
 
     <!-- 3D photo -->
 
-    <div class="virtual-photo">
-        <div class="virtual-word text-center fs-3 my-3">
-            Какой-то текст (ниже должна быть 3д фото нашей лаборатории)
-        </div>
-        <iframe width="90%" height="500px" allowFullScreen="true"
-                allow="accelerometer; magnetometer; gyroscope"
-                style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);"
-                src="https://panoraven.com/en/embed/6g7bXTlQcE"></iframe>
-    </div>
+    {#    <div class="virtual-photo">#}
+    {#        <div class="virtual-word text-center fs-3 my-3">#}
+    {#            Какой-то текст (ниже должна быть 3д фото нашей лаборатории)#}
+    {#        </div>#}
+    {#        <iframe width="90%" height="500px" allowFullScreen="true"#}
+    {#                allow="accelerometer; magnetometer; gyroscope"#}
+    {#                style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);"#}
+    {#                src="https://panoraven.com/en/embed/6g7bXTlQcE"></iframe>#}
+    {#    </div>#}
 
     <!-- Partners -->
 
-    <div class="partners my-5">
-        <div class="partners-title text-center fs-3 text-uppercase mb-4">
-            Наши партнеры
-        </div>
-        <section class="customer-logos slider">
-            <div class="slide"><img
-                    src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">
-            </div>
-            <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg">
-            </div>
-            <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg">
-            </div>
-            <div class="slide"><img
-                    src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg">
-            </div>
-            <div class="slide"><img
-                    src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg"></div>
-            <div class="slide"><img
-                    src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg"></div>
-            <div class="slide"><img
-                    src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg">
-            </div>
-        </section>
-    </div>
-
-    {% for h in hz %}
-        <h1>{{ h.name }}</h1>
-    {% endfor %}
+    {#    <div class="partners my-5">#}
+    {#        <div class="partners-title text-center fs-3 text-uppercase mb-4">#}
+    {#            Наши партнеры#}
+    {#        </div>#}
+    {#        <section class="customer-logos slider">#}
+    {#            <div class="slide"><img#}
+    {#                    src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">#}
+    {#            </div>#}
+    {#            <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg">#}
+    {#            </div>#}
+    {#            <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg">#}
+    {#            </div>#}
+    {#            <div class="slide"><img#}
+    {#                    src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg">#}
+    {#            </div>#}
+    {#            <div class="slide"><img#}
+    {#                    src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg"></div>#}
+    {#            <div class="slide"><img#}
+    {#                    src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg"></div>#}
+    {#            <div class="slide"><img#}
+    {#                    src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg">#}
+    {#            </div>#}
+    {#        </section>#}
+    {#    </div>#}
+    {##}
+    {#    {% for h in hz %}#}
+    {#        <h1>{{ h.name }}</h1>#}
+    {#    {% endfor %}#}
 
 
 
