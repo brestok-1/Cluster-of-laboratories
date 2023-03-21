@@ -1,12 +1,104 @@
 {% extends 'robotics/laboratory_base.html' %}
-
-{% block aboutlaboratorylink %}
-    <a href="{% url 'robotics:agriculture' %}" class="list-group-item list-group-item-action ">О
-                            лаборатории</a>
+{% load static %}
+{% block mainphoto %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active main-photo-box">
+                <img src="{% static 'vendor/img/cluster-photo/digital_engineering.png' %}"
+                     class="d-block w-100 main-photo"
+                     alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="py-4 name-title">
+        Цифровой инжиниринг АПК
+    </div>
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center mt-4">Точное земледелие</h1>
-    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae corporis deserunt, dicta, eligendi eum in ipsum necessitatibus porro, quia saepe sapiente ullam vitae. At consequuntur eveniet, harum maiores nam possimus!</span><span>Cupiditate dignissimos ex fugiat illo impedit laudantium ratione repudiandae unde? Accusamus animi beatae cum distinctio eius enim error, facilis fuga hic in magni maxime nesciunt nostrum, quia quidem suscipit veritatis.</span><span>Adipisci aspernatur blanditiis culpa distinctio doloremque dolores ex in, inventore ipsum itaque iure magnam maxime nam nemo neque nobis nostrum odit reiciendis repellendus repudiandae saepe, sed sequi tempora unde veritatis.</span><span>Blanditiis debitis dolorem eveniet, iure odio repellat voluptatum? Ab accusamus facilis, in incidunt quas recusandae unde? Blanditiis dicta earum error itaque laboriosam maiores, minima obcaecati reprehenderit sed totam ut, voluptatibus.</span><span>Consequuntur dolorum facere ipsa, laudantium magni minus nemo placeat praesentium quaerat tenetur. Alias aspernatur commodi doloremque dolores est exercitationem, iste iure nostrum perspiciatis praesentium quam rem rerum saepe, soluta voluptatem?</span><span>Alias assumenda dignissimos doloremque earum est expedita ipsam maxime natus officiis, possimus quibusdam quidem quos repellendus saepe tenetur totam veritatis voluptate? Consequatur doloremque iusto molestiae nam repellendus repudiandae rerum ullam?</span><span>Adipisci atque beatae commodi cum delectus deleniti, dicta dolorem eligendi expedita facilis impedit incidunt labore laboriosam minus modi odio officia officiis quisquam quod rerum sed, sint suscipit, tempore ullam veniam!</span><span>Ad aliquam animi architecto assumenda blanditiis, cupiditate, ducimus eius eligendi enim explicabo laudantium modi nemo perspiciatis quis reiciendis reprehenderit repudiandae rerum saepe, similique soluta. Eos facilis illo nihil repudiandae. Est.</span><span>Alias, consectetur est itaque iusto labore laboriosam molestiae neque, nisi placeat provident qui rem saepe sapiente totam ut? Corporis deleniti dolores, doloribus eos libero nemo nisi quam tempore ullam ut.</span><span>Amet consequatur consequuntur debitis distinctio, dolor dolorem earum eos expedita illum ipsa minus odio placeat possimus quidem, repellat repellendus sapiente suscipit tenetur vel voluptatem! Enim iste necessitatibus nobis nulla reprehenderit.</span>
-    </p>
+    <div class="mt-3">
+        <div class="underline"></div>
+        <div class="news my-3">
+            О лаборатории:
+        </div>
+        <div class="underline"></div>
+
+        <div class="info my-3">
+            Научно-исследовательская лаборатория «Цифровой инжиниринг агропромышленного комплекса» была создана и
+            открыта при поддержке Брестского областного исполнительного комитета, ОАО «Технологии земледелия» и группы
+            компаний «Санта» ОАО «Савушкин продукт».
+            <br>
+            Основная цель лаборатории цифрового инжиниринга АПК — подготовка инженерных кадров и разработка
+            научно-технической инновационной продукции в аграрном секторе экономики.
+            <div class="underline my-3"></div>
+            <p></p>
+            Цели:
+            <ul>
+                <li>подготовка кадров на основе новых производственных технологий и инструментов</li>
+                <li>освоение существующих и разработка новых инновационных технологий и продуктов</li>
+                <li>внедрение моделирования и вычислительных инструментов</li>
+                <li>создание программного обеспечения</li>
+                <li>сопровождение инновационных проектов и процессов их внедрения в реальный сектор экономики</li>
+            </ul>
+
+            {#            <div class="underline"></div>#}
+            Методология – цифровой инжиниринг:
+            <ul>
+                <li>Физико-математическое моделирование (Comsol)</li>
+                <li>Моделирование зданий и сооружений BIM (Revit)</li>
+                <li>Моделирование пространственного объектов GIS (ArcGis)</li>
+                <li>создание программного обеспечения;</li>
+                <li>Цифровые двойники технологических процессов (Visual Components)</li>
+            </ul>
+            Основные направления деятельности:
+            <ul>
+                <li>Технологии индивидуального подбора для отдельных органов растений состава биологических препаратов
+                    для обработки сельскохозяйственных культур
+                </li>
+                <li>Технологии точного орошения, полива сельскохозяйственных растений с учетом фактического уровня
+                    сезонного увлажнения и его соответствия нормативным требованиям с выбором режима полива с
+                    минимизацией расхода воды
+                </li>
+                <li>Технологии водного автопилотирования сельскохозяйственной техники</li>
+                <li>Технологии планирования сроков проведения полевых работ на основании высокоточных локальных
+                    метеоданных
+                </li>
+                <li>технологии мониторинга состояния полей и внесения средств защиты растений с помощью беспилотных
+                    летательных аппаратов
+                </li>
+            </ul>
+            Состав лаборатории:
+            <ul>
+                <li>Руководитель лаборатории - Шпендик Наталья Николаевна, кандидат географических наук, доцент кафедры
+                    теплогазоснабжения и вентиляции
+                </li>
+                <li>Стажер младшего научного сотрудника - Каперейко Юлия</li>
+                <li>Студенты и магистранты следующих специальностей: теплогазоснабжения и вентиляции, искусственный
+                    интеллект, программное обеспечение, автоматизированные системы обработки информации, вычислительные
+                    машины системы и сети, промышленная электроника
+                </li>
+                <li>Инженерный состав партнеров лаборатории: ООО “Технологии земледелия”</li>
+            </ul>
+            Оборудование лаборатории: <br>
+            <p>Оборудование лаборатории представлено тренировочными симуляторами для обучения: дисплей Trimble и
+                приложение Precision IQ, программное обеспечение Trimble Ag Software (занесение информации, удаленный
+                контроль за работой техники, синхронизация программного обеспечения с дисплеями посредством
+                Internet-соединения, создание электронных карт урочищ и карт предписаний для дифференцированного
+                внесения), оборудование по мониторингу урожайности и управлению дозирующим устройством зерновой сеялки
+                по протоколу ISOBUS
+            </p>
+            СМИ о лаборатории:
+            <ul>
+                <li>https://www.belta.by/regions/view/laboratoriju-tsifrovogo-inzhiniringa-apk-otkryli-v-brestskom-tehnicheskom-universitete-553388-2023/</li>
+                <li>https://news.bstu.by/2023/03/02/02-03-2023/</li>
+            </ul>
+            Контакты <br>
+            224017, ул. Московская, 267, корпус 3, ауд. 127а <br>
+            +375297297567 <br>
+            (shpendik@tut.by) <br>
+        </div>
+    </div>
+
 {% endblock %}

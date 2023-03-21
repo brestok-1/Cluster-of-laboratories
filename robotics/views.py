@@ -14,7 +14,7 @@ class RoboticsMainView(LaboratoryMixin, TemplateView):
 
 class BIMMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/BIM_index.html'
-    title = 'Лаборатория "BIM"'
+    title = 'Лаборатория "НИЦИС"'
 
 
 class TechnicalVisionView(LaboratoryMixin, TemplateView):

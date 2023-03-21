@@ -14,7 +14,7 @@ from robotics.models import *
 
 class IndexView(CommonMixin, ClusterMixin, TemplateView):
     template_name = 'cluster/index.html'
-    title = 'Добро пожаловать на наш кластер'
+    title = 'Центр Цифровых Технологий'
 
 
 class ListNewsView(CommonMixin, ClusterMixin, ListView):
@@ -63,3 +63,8 @@ class SearchView(CommonMixin, ClusterMixin, ListView):
             Technologies.objects.filter(Q(name__icontains=query) | Q(description__icontains=query)))
         return news_list + projects_list + technologies_list
 
+
+class ProjectsView(CommonMixin, ListView):
+    title = 'Проекты'
+    model = Projects
+    template_name = 'cluster/list_projects.html'

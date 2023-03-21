@@ -1,6 +1,6 @@
 {% extends 'robotics/laboratory_base.html' %}
 {% load static %}
-{% block laboratoryphoto %}
+{% block mainphoto %}
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
         </div>
@@ -8,27 +8,93 @@
             <div class="carousel-item active main-photo-box">
                 <img src="{% static 'vendor/img/cluster-photo/robotics.jpg' %}" class="d-block w-100 main-photo"
                      alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    {#                    <div class=" fs-2">Центр лабораторий БрГТУ</div>#}
-                </div>
             </div>
         </div>
     </div>
-    <div class="py-4 text-center bg-primary fs-4 text-white fst-italic">
+    <div class="py-4 name-title">
         Промышленная робототехника
     </div>
 {% endblock %}
 
-{% block aboutlaboratorylink %}
-    <a href="{% url 'robotics:robotics' %}" class="list-group-item list-group-item-action ">О
-        лаборатории</a>
-{% endblock %}
-
-
 {% block content %}
-    <div class="info mt-4">
-        Учебная научно-практическая лаборатория “Промышленная робототехника”-ведущая лаборатория БрГТУ в области
-        обучения
-        и разработки проектов по автоматизации и роботизации производственных предприятий.
+    <div class="mt-3">
+        <div class="underline"></div>
+        <div class="news my-3">
+            О лаборатории:
+        </div>
+        <div class="underline"></div>
+
+        <div class="info my-3">
+            Научно-исследовательская лаборатория «Цифровой инжиниринг агропромышленного комплекса» была создана и
+            открыта при поддержке Брестского областного исполнительного комитета, ОАО «Технологии земледелия» и группы
+            компаний «Санта» ОАО «Савушкин продукт».
+            <div class="underline my-3"></div>
+            Цели:
+            <ul>
+                <li>Подготовка и переподготовка кадров в области промышленной робототехники, автоматизации технологических процессов, цифрового инжиниринга, компьютерного моделирования и цифровых двойников</li>
+                <li>Разработка новых и инновационных технологий, образцов, изделий для областей промышленности</li>
+                <li>Разработка робототехнических комплексов, уникальных захватных механизмов, специализированных транспортных систем, систем автоматизации</li>
+                <li>Моделирование и анализ технологических процессов</li>
+            </ul>
+            Компетенции:
+            <ul>
+                <li>Компьютерный инжиниринг производственных площадок,  технологических процессов, робототехнических комплексов и систем на основе современных инструментов Visual Components, Рациональное производство, AnyLogic</li>
+                <li>Проектирование новых и уникальных видов РТК, захватных механизмов, моделирование и прототипирование устройств с использованием технологии коллаборативных роботов (Techman Robots, Rozum Robotics, Universal Robots, Omron)</li>
+                <li>Подготовка конструкторской документации, разработка технологической документации с использование Autodesk Inventor, Компас3D</li>
+                <li>Разработка программного обеспечения для систем управления РТК, коллаборативными и промышленными роботами</li>
+                <li>Разработка компьютерных моделей производственных процессов, сценариев и вариантов применения, сбор и анализ модельных данных, подготовка и обоснование управленческих решений</li>
+            </ul>
+            Направление работы:
+            <ul>
+                <li>Разработка и внедрение новых современных цифровых технологий в производственные процессы предприятий</li>
+                <li>Повышение кадрового потенциала предприятий</li>
+                <li>Решение производственных проблем, узких мест, повышение качественных и количественных показателей работы производственных площадок заказчиков</li>
+                <li>Консультирование предприятий по вопросам развития производственных процессов, совершенствования технологий</li>
+                <li>Популяризация новых инновационных технологий для предприятий в виде семинаров, выставок, выступлений в СМИ</li>
+                <li>Участие в разработке стандартов для новых технологий</li>
+            </ul>
+            Состав лаборатории:
+            <ul>
+                <li>Заведующий лабораторией - Касьяник Валерий Викторович, старший преподаватель кафедры интеллектуальных информационных технологий</li>
+                <li>Студенты и магистранты следующих специальностей: искусственный интеллект, программное обеспечение, автоматизированные системы обработки информации, вычислительные машины системы и сети, промышленная электроника</li>
+                <li>Инженерный состав партнеров лаборатории: ООО Системы промышленной автоматизации, ООО Тэкса</li>
+            </ul>
+            Применяемые технологии:
+            <ul>
+                <li>Коллаборативные роботы Techman Robots, Rozum Robots, Universal Robots, Han\s Robots</li>
+                <li>Промышленные роботы Omron, Hiwin, Kawasaki, Schneider Electric</li>
+                <li>Программное обеспечение Visual Components/Рациональное производство для моделирования РТК</li>
+                <li>Симулятор CoppelliaSim/Webots</li>
+                <li>Фреймворк Robotics Operating system</li>
+                <li>Фреймворк для моделирования SimPy</li>
+                <li>Среда моделирования AnyLogic</li>
+            </ul>
+            Оборудование лаборатории:
+            <ul>
+                <li>Коботы UR-10, TM-12/5, Rozum Pulse 70/90, дельта робот STS-40</li>
+                <li>3D принтер Ultimaker 5S</li>
+                <li>3D сканер EinScan Pro</li>
+                <li>Мобильный робот Omron LD-90</li>
+                <li>Мобильный робот Robotize Gopal 400</li>
+                <li>Мобильный робот TurtleBot3</li>
+                <li>Стенд для тестирования пневматических захватных механизмов</li>
+                <li>Набор захватных механизмов OnRobot</li>
+                <li>Набор захватных механизмов Vuototechnica</li>
+            </ul>
+            СМИ о лаборатории:
+            <ul>
+                <li><a href="https://www.belta.by/pressconference/view/tehnologicheskij-suverenitet-belarusi-operezhajuschee-razvitie-ekonomiki-cherez-modernizatsiju-1514/">https://www.belta.by/pressconference/view/tehnologicheskij-suverenitet-belarusi-operezhajuschee-razvitie-ekonomiki-cherez-modernizatsiju-1514/</a></li>
+                <li><a href="https://old.bstu.by/news/3410/123/otkrytie-laboratorii-promyshlennaya-robototehnika">https://old.bstu.by/news/3410/123/otkrytie-laboratorii-promyshlennaya-robototehnika</a></li>
+                <li><a href="https://www.belnovosti.by/tehnologii/v-breste-poyavilas-laboratoriya-promyshlennoy-robototehniki">https://www.belnovosti.by/tehnologii/v-breste-poyavilas-laboratoriya-promyshlennoy-robototehniki</a></li>
+                <li><a href="https://datamark.by/robototekhnika/">https://datamark.by/robototekhnika/</a></li>
+                <li><a href="https://belchas.1prof.by/news/roboty-i-koboty/">https://belchas.1prof.by/news/roboty-i-koboty/</a></li>
+                <li><a href="https://edu.gov.by/by-be/news/brgtu--otkryta-laboratoriya-robototekhniki/?special_version=Y">https://edu.gov.by/by-be/news/brgtu--otkryta-laboratoriya-robototekhniki/?special_version=Y</a></li>
+                <li><a href="https://brokm.by/kiberpiatnitsa/">https://brokm.by/kiberpiatnitsa/</a></li>
+            </ul>
+            Контакты <br>
+            224017, ул. Московская, 267, корпус 3, ауд. 129 <br>
+            +375295274539 <br>
+            vvkasyanik@bstu.by <br>
+        </div>
     </div>
 {% endblock %}

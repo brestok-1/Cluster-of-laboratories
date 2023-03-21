@@ -75,7 +75,7 @@
                   <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
 
                   <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
-                    <li class="active"><a href="{% url 'robotics:robotics' %}" class="nav-link">Промышленная робототехника</a></li>
+                    <li class="{% if selected == 'Лаборатория "Промышленная робототехника"' %}active{% endif %}"><a href="{% url 'robotics:robotics' %}" class="nav-link">Промышленная робототехника</a></li>
                     <!-- <li class="has-children">
                       <a href="#" class="nav-link text-white">Pages</a>
                       <ul class="dropdown arrow-top">
@@ -92,9 +92,9 @@
                         </li>
                       </ul>
                     </li> -->
-                    <li><a href="{% url 'robotics:agriculture' %}" class="nav-link ">Цифровой инжиниринг АПК</a></li>
-                    <li><a href="{% url 'robotics:BIM' %}" class="nav-link ">НИЦИС</a></li>
-                    <li><a href="{% url 'robotics:technical_vision' %}" class="nav-link ">Техническое Зрение</a></li>
+                    <li  class="{% if selected == 'Лаборатория "Цифровой инжиниринг АПК"' %}active{% endif %}"><a href="{% url 'robotics:agriculture' %}" class="nav-link ">Цифровой инжиниринг АПК</a></li>
+                    <li  class="{% if selected == 'Лаборатория "НИЦИС"' %}active{% endif %}"><a href="{% url 'robotics:BIM' %}" class="nav-link ">НИЦИС</a></li>
+                    <li  class="{% if selected == 'Лаборатория "Техническое зрение"' %}active{% endif %}"><a href="{% url 'robotics:technical_vision' %}" class="nav-link ">Техническое Зрение</a></li>
                   </ul>
                 </div>
               </nav>
@@ -108,135 +108,9 @@
 
 {% endblock %}
 
-<div class="container-fluid">
-    <div class="row">
+{% block base %}
 
-        <!-- Left Sidebar -->
-        <div class="col-md-3 sidebar mb-5 mt-3">
-            <div class="underline"></div>
-            {#            <div class="sidebar-toggler mb-2">#}
-            {#                <button class="btn btn-light d-none" type="button">Category <i class="fas fa-chevron-circle-down"></i>#}
-            {#                </button>#}
-            {#            </div>#}
-            {#            <div class="sidebar-toggle">#}
-            {#                <ul class="list-group">#}
-            {#                    <a href="{% url 'index' %}" class="list-group-item list-group-item-action">Центр Цифровых технологий</a>#}
-            {#                    <a href="{% url 'cluster:list_news' %}" class="list-group-item list-group-item-action">Новости</a>#}
-            {#                    <a href="#" class="list-group-item list-group-item-action">Виртуальная экскурсия</a>#}
-            {##}
-            {#                    <div class="accordion border-bottom" id="accordionExample">#}
-            {#                        <div class="accordion-item">#}
-            {#                            <h2 class="accordion-header" id="headingTwo">#}
-            {#                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"#}
-            {#                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#}
-            {#                                    Студентам#}
-            {#                                </button>#}
-            {#                            </h2>#}
-            {#                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"#}
-            {#                                 data-bs-parent="#accordionExample">#}
-            {#                                <div class="accordion-body">#}
-            {#                                    <a href="d-block">Ссылка на первую статью для студентов</a>#}
-            {#                                    <a href="d-block">Ссылка на вторую статью для студентов</a>#}
-            {#                                    <a href="d-block">Ссылка на третью статью для студентов</a>#}
-            {#                                </div>#}
-            {#                            </div>#}
-            {#                        </div>#}
-            {#                    </div>#}
-            {##}
-            {#                </ul>#}
-            {#            </div>#}
-        </div>
-
-        <div class="col-md-6">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-        <!-- Recent articles -->
-        <div class="col-md-3">
-            <div class="underline mt-3">
-            </div>
-            <div class="news py-3 ">
-                Новости:
-            </div>
-            <div class="underline"></div>
-{#        <div class="comment border-comment mb-4 mt-4">#}
-{#            <div class="py-3 ps-3" id="MakeComment">Последние новости:</div>#}
-{##}
-{#            {% for one_new in news_list %}#}
-{#                {% if not forloop.last %}#}
-{#                    <div class="my-3 px-3 recent-article mb-2">#}
-{#                        <div class="article-title fs-4 mt-3">#}
-{#                            {{ one_new.name|title }}#}
-{#                        </div>#}
-{#                        <div class="article-content mt-2">#}
-{#                            {{ one_new.description|truncatewords:10 }}#}
-{#                        </div>#}
-{#                        <div class="article-link mt-2">#}
-{#                            <a href="{% url 'cluster:one_new' one_new.slug %}"#}
-{#                               class="btn btn-outline-success mb-3">View</a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% else %}#}
-{#                    <div class="my-3 px-3 mb-0">#}
-{#                        <div class="article-title fs-4 mt-3">#}
-{#                            {{ one_new.name|title }}#}
-{#                        </div>#}
-{#                        <div class="article-content mt-2">#}
-{#                            {{ one_new.description|truncatewords:10 }}#}
-{#                        </div>#}
-{#                        <div class="article-link mt-2">#}
-{#                            <a href="{% url 'cluster:one_new' one_new.slug %}"#}
-{#                               class="btn btn-outline-success mb-3">View</a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endif %}#}
-{#            {% endfor %}#}
-{##}
-{#        </div>#}
-
-
-{#        <div class="comment border-comment mb-4 mt-4">#}
-{#            <div class="py-3 ps-3" id="MakeComment">Последние проекты:</div>#}
-{##}
-{#            {% for project in projects %}#}
-{#                {% if not forloop.last %}#}
-{#                    <div class="my-3 px-3 recent-article mb-2">#}
-{#                        <div class="article-title fs-4 mt-3">#}
-{#                            {{ project.name }}#}
-{#                        </div>#}
-{#                        <span class="text-black-50 ps-0">{{ project.time_created }}</span>#}
-{#                        <div class="article-content mt-2">#}
-{#                            {{ project.description|truncatewords:10 }}#}
-{#                        </div>#}
-{#                        <span class="text-success">{{ project.owner.name }}</span>#}
-{#                        <div class="article-link mt-2">#}
-{#                            <a href="{% url 'robotics:project' project.slug %}" class="btn btn-outline-success mb-3">View</a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% else %}#}
-{#                    <div class="my-3 px-3 mb-0">#}
-{#                        <div class="article-title fs-4 mt-3">#}
-{#                            {{ project.name }}#}
-{#                        </div>#}
-{#                        <span class="text-black-50 ps-0">{{ project.time_created }}</span>#}
-{#                        <div class="article-content">#}
-{#                            {{ project.description|truncatewords:10 }}#}
-{#                        </div>#}
-{#                        <span class="text-success">{{ project.owner.name }}</span>#}
-{#                        <div class="article-link mt-2">#}
-{#                            <a href="{% url 'robotics:project' project.slug %}" class="btn btn-outline-success mb-3">View</a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endif %}#}
-{#            {% endfor %}#}
-{##}
-{#        </div>#}
-
-
-    </div>
-</div>
-</div>
+{% endblock %}
 
 <!-- Footer -->
 
@@ -289,7 +163,6 @@
 <script src="{% static 'vendor/js/popper.min.js' %}"></script>
 <script src="{% static 'vendor/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'vendor/js/jquery.sticky.js' %}"></script>
-<script src="{% static 'vendor/js/main.js' %}"></script>
 <!-- Fontawesome -->
 <script src="https://kit.fontawesome.com/d4ffd37f75.js" crossorigin="anonymous"></script>
 <!-- My JS -->

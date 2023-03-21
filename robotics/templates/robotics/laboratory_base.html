@@ -1,274 +1,32 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <!-- Conntect  Bootstrap JS with CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-            crossorigin="anonymous"></script>
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
-            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <!-- Slider JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-    <!-- Connect style.css -->
-    <link rel="stylesheet" href="{% static 'vendor/css/style.css' %}">
-
-
-</head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-primary">
+{% extends 'cluster/base.html' %}
+{% block base %}
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{% url 'index' %}">Центр Цифровых технологий</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white {% if selected == 'Лаборатория "Промышленная робототехника"' %}nav-active{% endif %}" href="{% url 'robotics:robotics' %}">Промышленная робототехника</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white {% if selected == 'Лаборатория "Техническое зрение"' %}nav-active{% endif %}" href="{% url 'robotics:technical_vision' %}">Техническое зрение</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white {% if selected == 'Лаборатория "Цифровой инжиниринг АПК"' %}nav-active{% endif %}" href="{% url 'robotics:agriculture' %}">Цифровой инжиниринг АПК</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white {% if selected == 'Лаборатория "BIM"' %}nav-active{% endif %}" href="{% url 'robotics:BIM' %}">BIM</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search" method="get" action="{% url 'search' %}">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="q">
-                <button class="btn btn-success" type="submit">Поиск</button>
-            </form>
+        <div class="row">
+
+            <!-- Left Sidebar -->
+            <div class="col-md-3 sidebar mb-5 mt-3">
+                <div class="underline"></div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+
+                    {% block content %}
+                    {% endblock %}
+
+                </div>
+
+            </div>
+
+            <!-- Recent articles -->
+            <div class="col-md-3">
+                <div class="underline mt-3">
+                </div>
+                <div class="news py-3 ">
+                    Последние проекты:
+                </div>
+                <div class="underline"></div>
+            </div>
         </div>
     </div>
-</nav>
-
-{% block laboratoryphoto %}
-
 {% endblock %}
-
-<div class="container-fluid">
-    <div class="row">
-
-        <!-- Left Sidebar -->
-        <div class="col-md-3 sidebar mb-5 mt-3">
-            <div class="sidebar-toggler mb-2">
-                <button class="btn btn-light d-none" type="button">Category <i class="fas fa-chevron-circle-down"></i>
-                </button>
-            </div>
-            <div class="sidebar-toggle">
-                <ul class="list-group">
-                    <ul class="list-group">
-                        {% block aboutlaboratorylink %}
-
-                        {% endblock %}
-
-                        <div class="accordion border-bottom" id="accordionExample2">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo2" aria-expanded="false"
-                                            aria-controls="collapseTwo2">
-                                        Технологии
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2"
-                                     data-bs-parent="#accordionExample2">
-                                    <div class="accordion-body">
-                                        {% for technology in technologies %}
-                                            <a class="d-block border-bottom"
-                                               href="{% url 'robotics:tech' technology.slug %}">{{ technology.name }}</a>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion border-bottom" id="accordionExample1">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo1">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo1" aria-expanded="false"
-                                            aria-controls="collapseTwo1">
-                                        Проекты
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo1" class="accordion-collapse collapse" aria-labelledby="headingTwo1"
-                                     data-bs-parent="#accordionExample1">
-                                    <div class="accordion-body">
-                                        {% for project in projects %}
-                                            <a class="d-block border-bottom"
-                                               href="{% url 'robotics:project' project.slug %}">{{ project.name }}</a>
-                                        {% endfor %}
-
-{#                                        {% if stop_list %}#}
-{#                                            <a href="{% url 'robotics:list_projects' %}" class="btn btn-success btn-sm mt-3">Посмотреть все проекты</a>#}
-{#                                        {% endif %}#}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion border-bottom" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                        Обучение
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                     data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        {% for cours in courses %}
-                                            <a class="d-block border-bottom"
-                                               href="{% url 'robotics:course' cours.slug %}">{{ cours.name }}</a>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </ul>
-
-
-                </ul>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="row">
-
-                {% block content %}
-                {% endblock %}
-
-            </div>
-
-        </div>
-
-        <!-- Recent articles -->
-        <div class="col-md-3">
-
-            <div class="comment border-comment mb-4 mt-4">
-                <div class="py-3 ps-3" id="MakeComment">Последние проекты:</div>
-
-                {% for project in projects %}
-                    {% if not forloop.last %}
-                        <div class="my-3 px-3 recent-article mb-2">
-                            <div class="article-title fs-4 mt-3">
-                                {{ project.name }}
-                            </div>
-                            <span class="text-black-50 ps-0">{{ project.time_created }}</span>
-                            <div class="article-content mt-2">
-                                {{ project.description|truncatewords:10 }}
-                            </div>
-                            <span class="text-success">{{ project.owner }}</span>
-                            <div class="article-link mt-2">
-                                <a href="{% url 'robotics:project' project.slug %}"
-                                   class="btn btn-outline-success mb-3">View</a>
-                            </div>
-                        </div>
-                    {% else %}
-                        <div class="my-3 px-3 mb-0">
-                            <div class="article-title fs-4 mt-3">
-                                {{ project.name }}
-                            </div>
-                            <span class="text-black-50 ps-0">{{ project.time_created }}</span>
-                            <div class="article-content">
-                                {{ project.description|truncatewords:10 }}
-                            </div>
-                            <span class="text-success">{{ project.owner }}</span>
-                            <div class="article-link mt-2">
-                                <a href="{% url 'robotics:project' project.slug %}"
-                                   class="btn btn-outline-success mb-3">View</a>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-
-<div class="container-fluid gx-0">
-    <div class="row gx-0">
-
-        <footer>
-            <section class="footer d-none d-md-block">
-                <div class="container-fluid">
-                    <div class="row p-0 footer-bg justify-content-around">
-                        <div class="col-3 py-3">
-                            <div class="footer-head my-3 text-uppercase text-center">
-                                Местонахождение
-                            </div>
-                            <div class="line-footer my-3 "></div>
-                            <div class="footer-text mt-4">
-                                Беларусь, г. Брест, БрГТУ
-                            </div>
-                        </div>
-                        <div class="col-3 py-3">
-                            <div class="footer-head my-3 text-uppercase text-center">
-                                Контакты
-                            </div>
-                            <div class="line-footer my-2"></div>
-                            <div class="footer-text mt-4 d-flex justify-content-between">
-                                <a href="" class="footer-icons"><i class="fab fa-facebook-f"></i></a>
-                                <a href="" class="footer-icons"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="" class="footer-icons"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-3 py-3">
-                            <div class="footer-head my-3 text-uppercase text-center">
-                                О нас
-                            </div>
-                            <div class="line-footer my-2"></div>
-                            <div class="footer-text mt-4">
-                                Это чистый макет без никаких стилей. Это чистый макет без никаких стилей. Это чистый
-                                макет без никаких стилей.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="section">
-                <div class="footer-2 py-3 text-center">
-                    Copyright &copy; Shymanouski Maksim, 2023
-                </div>
-            </div>
-        </footer>
-    </div>
-</div>
-
-<!-- Fontawesome -->
-<script src="https://kit.fontawesome.com/d4ffd37f75.js" crossorigin="anonymous"></script>
-<!-- My JS -->
-<script src="{% static 'vendor/js/main.js' %}"></script>
-</body>
-</html>

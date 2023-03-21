@@ -1,0 +1,13 @@
+{% extends 'cluster/cluster_base.html' %}
+{% load static %}
+{% block content %}
+    {% for object in object_list %}
+        <div class="border mx-3">
+            <p>{{ object.name }}</p>
+            <p>{{ object.description }}</p>
+            <p>{{ object.time_created }}</p>
+            <p>{{ object.owner }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}
