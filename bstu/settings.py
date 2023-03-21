@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'django_redis',
 
     'cluster',
     'robotics',
@@ -78,23 +77,24 @@ WSGI_APPLICATION = 'bstu.wsgi.application'
 INTERNAL_IPS = [
     '127.0.0.1',
     'localhost',
+
 ]
 
 # Redis
 
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = '6379'
-
-# Cache
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/1',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient'
-        }
-    }
-}
+# REDIS_HOST = '127.0.0.1'
+# REDIS_PORT = '6379'
+#
+# # Cache
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/1',
+#         'OPTIONS': {
+#             'CLIENT_CLASS': 'django_redis.client.DefaultClient'
+#         }
+#     }
+# }
 
 # Database
 
