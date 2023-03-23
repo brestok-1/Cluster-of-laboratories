@@ -9,7 +9,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="{% static 'vendor/icomoon/style.css' %}">
 
@@ -24,85 +25,79 @@
 <body>
 
 <!-- Navbar -->
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+            <span class="icon-close2 js-menu-toggle"></span>
         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div> <!-- .site-mobile-menu -->
-
-
-    <div class="site-navbar-wrap">
-      <div class="site-navbar-top">
-        <div class="container py-3">
-          <div class="row align-items-center">
-            <div class="col-6">
-              <div class="d-flex mr-auto">
-                <a href="#" class="d-flex align-items-center mr-4">
-                  <span class="icon-envelope mr-2"></span>
-                  <span class="d-none d-md-inline-block">info@domain.com</span>
-                </a>
-                <a href="#" class="d-flex align-items-center mr-auto">
-                  <span class="icon-phone mr-2"></span>
-                  <span class="d-none d-md-inline-block">+1 234 4567 8910</span>
-                </a>
-              </div>
-            </div>
-            <div class="col-6 text-right">
-              <div class="mr-auto">
-                <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
-                <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
-                <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
-                <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="site-navbar site-navbar-target js-sticky-header">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-2">
-              <h1 class="my-0 site-logo"><a href="{% url 'index' %}">Brand</a></h1>
-            </div>
-            <div class="col-10">
-              <nav class="site-navigation text-right" role="navigation">
-                <div class="container">
-                  <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
-
-                  <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
-                    <li class="{% if selected == 'Лаборатория "Промышленная робототехника"' %}active{% endif %}"><a href="{% url 'robotics:robotics' %}" class="nav-link">Промышленная робототехника</a></li>
-                    <!-- <li class="has-children">
-                      <a href="#" class="nav-link text-white">Pages</a>
-                      <ul class="dropdown arrow-top">
-                        <li><a href="#" class="nav-link">Team</a></li>
-                        <li><a href="#" class="nav-link">Pricing</a></li>
-                        <li><a href="#" class="nav-link">FAQ</a></li>
-                        <li class="has-children">
-                          <a href="#">More Links</a>
-                          <ul class="dropdown">
-                            <li><a href="#">Menu One</a></li>
-                            <li><a href="#">Menu Two</a></li>
-                            <li><a href="#">Menu Three</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li> -->
-                    <li  class="{% if selected == 'Лаборатория "Цифровой инжиниринг АПК"' %}active{% endif %}"><a href="{% url 'robotics:agriculture' %}" class="nav-link ">Цифровой инжиниринг АПК</a></li>
-                    <li  class="{% if selected == 'Лаборатория "НИЦИС"' %}active{% endif %}"><a href="{% url 'robotics:BIM' %}" class="nav-link ">НИЦИС</a></li>
-                    <li  class="{% if selected == 'Лаборатория "Техническое зрение"' %}active{% endif %}"><a href="{% url 'robotics:technical_vision' %}" class="nav-link ">Техническое Зрение</a></li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+    <div class="site-mobile-menu-body"></div>
+</div> <!-- .site-mobile-menu -->
+
+
+<div class="site-navbar-wrap">
+    <div class="site-navbar-top">
+        <div class="container px-md-5 py-3">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="d-flex mr-auto">
+                        <a href="mailto:nis@bstu.by" class="d-flex align-items-center mr-4">
+                            <span class="icon-envelope mr-2"></span>
+                            <span class="d-none d-md-inline-block">nis@bstu.by</span>
+                        </a>
+                        <a href="tel:+375162321802" class="d-flex align-items-center mr-auto">
+                            <span class="icon-phone mr-2"></span>
+                            <span class="d-none d-md-inline-block">+375 (16) 232-18-02</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 text-right">
+                    <div class="mr-auto">
+                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-facebook"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-linkedin"></span></a>
+                        <a href="#" class="p-2 pl-0"><span class="icon-instagram"></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container-fluid px-md-5">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <h1 class="my-0 site-logo"><a href="{% url 'index' %}">Brand</a></h1>
+                </div>
+                <div class="col-10">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#"
+                                                                                          class="site-menu-toggle js-menu-toggle"><span
+                                    class="icon-menu h3"></span></a></div>
+
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                <li class="{% if selected == 'Лаборатория "Промышленная робототехника"' %}active{% endif %}">
+                                    <a href="{% url 'robotics:robotics' %}" class="nav-link">Промышленная
+                                        робототехника</a></li>
+                                <li class="{% if selected == 'Лаборатория "Цифровой инжиниринг АПК"' %}active{% endif %}">
+                                    <a href="{% url 'robotics:agriculture' %}" class="nav-link ">Цифровой инжиниринг
+                                        АПК</a></li>
+                                <li class="{% if selected == 'Лаборатория "НИЦИС"' %}active{% endif %}"><a
+                                        href="{% url 'robotics:BIM' %}" class="nav-link ">Инновации в строительстве</a>
+                                </li>
+                                <li class="{% if selected == 'Лаборатория "Техническое зрение"' %}active{% endif %}"><a
+                                        href="{% url 'robotics:technical_vision' %}" class="nav-link ">Техническое
+                                    Зрение</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% block mainphoto %}
 
@@ -115,49 +110,49 @@
 <!-- Footer -->
 
 
-        <footer>
-            <section class="footer d-none d-md-block">
-                <div class="container-fluid">
-                    <div class="row p-0 footer-bg justify-content-around">
-                        <div class="col-3 py-3">
-                            <div class="footer-head my-3 text-uppercase text-center">
-                                Местонахождение
-                            </div>
-                            <div class="line-footer my-3 "></div>
-                            <div class="footer-text mt-4">
-                                Беларусь, г. Брест, БрГТУ
-                            </div>
-                        </div>
-                        <div class="col-3 py-3">
-                            <div class="footer-head my-3 text-uppercase text-center">
-                                Контакты
-                            </div>
-                            <div class="line-footer my-2"></div>
-                            <div class="footer-text mt-4 d-flex justify-content-between">
-                                <a href="" class="footer-icons"><i class="fab fa-facebook-f"></i></a>
-                                <a href="" class="footer-icons"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="" class="footer-icons"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-3 py-3">
-                            <div class="footer-head my-3 text-uppercase text-center">
-                                О нас
-                            </div>
-                            <div class="line-footer my-2"></div>
-                            <div class="footer-text mt-4">
-                                Это чистый макет без никаких стилей. Это чистый макет без никаких стилей. Это чистый
-                                макет без никаких стилей.
-                            </div>
-                        </div>
+<footer>
+    <section class="footer d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row p-0 footer-bg justify-content-around">
+                <div class="col-3 py-3">
+                    <div class="footer-head my-3 text-uppercase text-center">
+                        Местонахождение
+                    </div>
+                    <div class="line-footer my-3 "></div>
+                    <div class="footer-text mt-4">
+                        Республика Беларусь, Брест, ул. Московская 267
                     </div>
                 </div>
-            </section>
-            <div class="section">
-                <div class="footer-2 py-3 text-center">
-                    Copyright &copy; Shymanouski Maksim, 2023
+                <div class="col-3 py-3">
+                    <div class="footer-head my-3 text-uppercase text-center">
+                        Контакты
+                    </div>
+                    <div class="line-footer my-2"></div>
+                    <div class="footer-text mt-4 d-flex justify-content-between">
+                        <a href="" class="footer-icons"><i class="fab fa-facebook-f"></i></a>
+                        <a href="" class="footer-icons"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="" class="footer-icons"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-3 py-3">
+                    <div class="footer-head my-3 text-uppercase text-center">
+                        О нас
+                    </div>
+                    <div class="line-footer my-2"></div>
+                    <div class="footer-text mt-4">
+                        Центр цифровизации <br>
+                        Научно-исследовательская часть БрГТУ
+                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
+    <div class="section">
+        <div class="footer-2 py-3 text-center">
+            Copyright &copy; Shymanouski Maksim, 2023
+        </div>
+    </div>
+</footer>
 <!-- Fontawesome -->
 <script src="{% static 'vendor/js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'vendor/js/popper.min.js' %}"></script>

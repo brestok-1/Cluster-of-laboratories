@@ -1,12 +1,12 @@
 from django.db import models
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
 
 class News(models.Model):
     name = models.CharField(max_length=255, verbose_name='Заголовок новости')
-    description = models.TextField(verbose_name='Содержание', default='')
+    description = RichTextUploadingField(verbose_name='Содержание')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', default='')
     time_created = models.DateField(verbose_name='Время создания')
     time_updated = models.DateField(auto_now=True, verbose_name='Время обновления')

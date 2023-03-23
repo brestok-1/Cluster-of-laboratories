@@ -26,6 +26,7 @@ urlpatterns = [
     path('search/', SearchView.as_view(), name='search'),
     path('cluster/', include('cluster.urls', namespace='cluster')),
     path('laboratory/', include('robotics.urls', namespace='robotics')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:
