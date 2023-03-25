@@ -27,16 +27,16 @@
                     Навигация:
                 </div>
                 <div class="underline"></div>
-                <div class="left-sidebar">
+                <div class="left-sidebar {% if left_sidebar_selected == 'Main' %}left-sidebar-active{% endif %}">
                     <a href="{% url 'index' %}">
                         <div class="left-sidebar-link py-3 my-3 pl-2">
                             Главная
                         </div>
                     </a>
                 </div>
-                <div class="left-sidebar">
+                <div class="left-sidebar {% if left_sidebar_selected == 'News' %}left-sidebar-active{% endif %}">
                     <a href="{% url 'cluster:list_news' %}">
-                        <div class="left-sidebar-link py-3 my-3 pl-2">
+                        <div class="left-sidebar-link py-3 my-3 pl-2 ">
                             Новости
                         </div>
                     </a>
@@ -66,38 +66,39 @@
 
                 {% for new in news_list %}
                     <section class="wrapper mt-3">
-                    <div class="container-fostrap ">
-                        <div class="content">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="card">
-                                        <a class="img-card"
-                                           href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                            <img src="{{ new.get_images.first.image.url }}">
-                                        </a>
-                                        <div class="card-content py-0">
-                                            <h4 class="card-title">
-                                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                                                    {{ new.name }}
-                                                </a>
-                                            </h4>
-                                            <p class="">
-                                                {% autoescape off %}{{ new.description|truncatewords:10 }}{% endautoescape %}
-                                            </p>
-                                        </div>
-                                        <div class="card-read-more">
-                                            <a href="{% url 'cluster:one_new' new.slug %}"
-                                               class="btn btn-block">
-                                                Подробнее
+                        <div class="container-fostrap ">
+                            <div class="content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="card">
+                                            <a class="img-card"
+                                               href="{% url 'cluster:one_new' new.slug %}">
+                                                <img src="{{ new.get_images.first.image.url }}" class="" alt="">
                                             </a>
+                                            <div class="card-content py-0">
+                                                <h4 class="card-title">
+                                                    <a href="{% url 'cluster:one_new' new.slug %}">
+                                                        {{ new.name }}
+                                                    </a>
+                                                </h4>
+                                                <p class="">
+                                                    {% autoescape off %}
+                                                        {{ new.description|truncatewords:10 }}{% endautoescape %}
+                                                </p>
+                                            </div>
+                                            <div class="card-read-more">
+                                                <a href="{% url 'cluster:one_new' new.slug %}"
+                                                   class="btn btn-block">
+                                                    Подробнее
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
                 {% endfor %}
 
             </div>

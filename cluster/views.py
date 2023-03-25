@@ -15,12 +15,14 @@ from robotics.models import *
 class IndexView(CommonMixin, ClusterMixin, TemplateView):
     template_name = 'cluster/index.html'
     title = 'Центр Цифровых Технологий'
+    left_sidebar_selected = 'Main'
 
 
 class ListNewsView(CommonMixin, ClusterMixin, ListView):
     title = 'Новости'
     model = News
     template_name = 'cluster/list_news.html'
+    left_sidebar_selected = 'News'
 
 
 class OneNewView(ClusterMixin, DetailView):
@@ -64,7 +66,3 @@ class SearchView(CommonMixin, ClusterMixin, ListView):
         return news_list + projects_list + technologies_list
 
 
-class ProjectsView(CommonMixin, ListView):
-    title = 'Проекты'
-    model = Projects
-    template_name = 'cluster/list_projects.html'

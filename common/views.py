@@ -12,8 +12,11 @@ class CommonMixin:
 
 
 class ClusterMixin:
+    left_sidebar_selected = None
+
     def get_context_data(self, **kwargs):
         context = super(ClusterMixin, self).get_context_data(**kwargs)
+        context['left_sidebar_selected'] = self.left_sidebar_selected
         context['news_list'] = News.objects.all()[:5]
         context['projects'] = Projects.objects.all()[:5]
         return context
@@ -21,12 +24,14 @@ class ClusterMixin:
 
 class LaboratoryMixin:
     title = None
+    left_sidebar_selected = 'Main'
 
     # selected = None
 
     def get_context_data(self, **kwargs):
         context = super(LaboratoryMixin, self).get_context_data(**kwargs)
         context['title'] = self.title
+        context['left_sidebar_selected'] = self.left_sidebar_selected
         context['selected'] = context['title']
         context['technologies'] = Technologies.objects.filter(owner__name=self.title)
         context['projects'] = Projects.objects.filter(owner__name=self.title)

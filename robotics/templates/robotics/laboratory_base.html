@@ -1,21 +1,48 @@
 {% extends 'cluster/base.html' %}
+{% load static %}
 {% block base %}
-    <div class="container-fluid">
+    <div class="container-fluid gx-5">
         <div class="row">
 
             <!-- Left Sidebar -->
-            <div class="col-md-3 sidebar mb-5 mt-3">
+            <div class="col-md-3 sidebar mb-5">
+                <div class="underline mt-3"></div>
+                <div class="news py-3 ">
+                    Навигация:
+                </div>
                 <div class="underline"></div>
+                <div class="left-sidebar {% if left_sidebar_selected == 'Main' %} left-sidebar-active {% endif %}">
+                    {% block mainlink %}
+
+                    {% endblock %}
+                </div>
+                <div class="left-sidebar">
+                    <a href="">
+                        {{ technologies.first.owner.name }}
+                        <div class="left-sidebar-link py-3 my-3 pl-2">
+                            Проекты
+                        </div>
+                    </a>
+                </div>
+                <div class="left-sidebar">
+                    <a href="{% url 'index' %}">
+                        <div class="left-sidebar-link py-3 my-3 pl-2">
+                            Технологии
+                        </div>
+                    </a>
+                </div>
+                <div class="left-sidebar">
+                    <a href="{% url 'index' %}">
+                        <div class="left-sidebar-link py-3 my-3 pl-2">
+                            Курсы
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div class="col-md-6">
-                <div class="row">
-
-                    {% block content %}
-                    {% endblock %}
-
-                </div>
-
+                {% block content %}
+                {% endblock %}
             </div>
 
             <!-- Recent articles -->
@@ -26,8 +53,41 @@
                     Последние проекты:
                 </div>
                 <div class="underline"></div>
-
-
+{#                {% for new in  %}#}
+{#                    <section class="wrapper mt-3">#}
+{#                    <div class="container-fostrap ">#}
+{#                        <div class="content">#}
+{#                            <div class="container">#}
+{#                                <div class="row">#}
+{#                                    <div class="card">#}
+{#                                        <a class="img-card"#}
+{#                                           href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">#}
+{#                                            <img src="{{ new.get_images.first.image.url }}">#}
+{#                                        </a>#}
+{#                                        <div class="card-content py-0">#}
+{#                                            <h4 class="card-title">#}
+{#                                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">#}
+{#                                                    {{ new.name }}#}
+{#                                                </a>#}
+{#                                            </h4>#}
+{#                                            <p class="">#}
+{#                                                {% autoescape off %}{{ new.description|truncatewords:10 }}{% endautoescape %}#}
+{#                                            </p>#}
+{#                                        </div>#}
+{#                                        <div class="card-read-more">#}
+{#                                            <a href="{% url 'cluster:one_new' new.slug %}"#}
+{#                                               class="btn btn-block">#}
+{#                                                Подробнее#}
+{#                                            </a>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </section>#}
+{#                {% endfor %}#}
 
             </div>
         </div>
