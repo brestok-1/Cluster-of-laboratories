@@ -1,11 +1,13 @@
 '''    Абстрактные классы моделей для лабораторий     '''
+import uuid
+
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Laboratory(models.Model):
     name = models.CharField(max_length=255)
-
+    slug = models.SlugField(max_length=255, db_index=True, unique=True, default='')
 
     def __str__(self):
         return self.name

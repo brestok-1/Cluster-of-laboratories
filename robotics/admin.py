@@ -37,4 +37,4 @@ class CoursesAdmin(admin.ModelAdmin):
 
 @admin.register(Laboratory)
 class Laboratory(admin.ModelAdmin):
-    fields = ('name',)
+    fields = ('name', 'slug')

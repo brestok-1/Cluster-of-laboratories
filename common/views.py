@@ -48,3 +48,23 @@ class DetailMixin:
         context['projects'] = Projects.objects.filter(owner__name=self.object.owner.name)
         context['courses'] = Courses.objects.filter(owner__name=self.object.owner.name)
         return context
+
+
+class ListMixin:
+    title = None
+
+    def get_context_data(self, **kwargs):
+        context = super(ListMixin, self).get_context_data(**kwargs)
+        context['title'] = self.title
+        context['main_link'] = self.kwargs.get('laboratory')
+        if self.title == 'Проекты':
+            context['left_sidebar_selected'] = 'projects'
+        elif self.title == 'Курсы':
+            context['left_sidebar_selected'] = 'courses'
+        else:
+            context['left_sidebar_selected'] = 'technologies'
+        context['technologies'] = Technologies.objects.filter(owner__slug=self.kwargs.get('laboratory'))
+        context['selected'] = self.object_list[0].owner.name
+        context['projects'] = Projects.objects.filter(owner__slug=self.kwargs.get('laboratory'))
+        context['courses'] = Courses.objects.filter(owner__slug=self.kwargs.get('laboratory'))
+        return context

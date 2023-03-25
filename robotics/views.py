@@ -3,7 +3,7 @@ import re
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, ListView
 
-from common.views import CommonMixin, LaboratoryMixin, DetailMixin
+from common.views import CommonMixin, LaboratoryMixin, DetailMixin, ListMixin
 from robotics.models import *
 
 
@@ -14,7 +14,7 @@ class RoboticsMainView(LaboratoryMixin, TemplateView):
 
 class BIMMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/BIM_index.html'
-    title = 'Лаборатория "НИЦИС"'
+    title = 'Лаборатория "Инновации в строительстве"'
 
 
 class TechnicalVisionView(LaboratoryMixin, TemplateView):
@@ -60,7 +60,9 @@ class AgricultureView(LaboratoryMixin, TemplateView):
 #         return context
 
 
-class ListProjectsView(CommonMixin, TemplateView):
+class ListProjectsView(ListMixin, ListView):
     template_name = 'robotics/list_projects.html'
     title = 'Проекты'
 
+    def get_queryset(self):
+        return Projects.objects.filter(owner__slug=self.kwargs.get('laboratory'))
