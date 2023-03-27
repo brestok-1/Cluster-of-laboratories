@@ -12,6 +12,7 @@ class RoboticsMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/robotics_index.html'
     title = 'Лаборатория "Промышленная робототехника"'
 
+
 class BIMMainView(LaboratoryMixin, TemplateView):
     template_name = 'robotics/BIM_index.html'
     title = 'Лаборатория "Инновации в строительстве"'
@@ -66,3 +67,19 @@ class ListProjectsView(ListMixin, ListView):
 
     def get_queryset(self):
         return Projects.objects.filter(owner__slug=self.kwargs.get('laboratory'))
+
+
+class ListTechnologiesView(ListMixin, ListView):
+    template_name = 'robotics/list_projects.html'
+    title = "Технологии"
+
+    def get_queryset(self):
+        return Technologies.objects.filter(owner__slug=self.kwargs.get('laboratory'))
+
+
+class ListCoursesView(ListMixin, ListView):
+    template_name = 'robotics/list_courses.html'
+    title = "Курсы"
+
+    def get_queryset(self):
+        return Courses.objects.filter(owner__slug=self.kwargs.get('laboratory'))

@@ -63,8 +63,8 @@ class ListMixin:
             context['left_sidebar_selected'] = 'courses'
         else:
             context['left_sidebar_selected'] = 'technologies'
-        context['technologies'] = Technologies.objects.filter(owner__slug=self.kwargs.get('laboratory'))
         context['selected'] = self.object_list[0].owner.name
+        context['technologies'] = Technologies.objects.filter(owner__slug=self.kwargs.get('laboratory'))
         context['projects'] = Projects.objects.filter(owner__slug=self.kwargs.get('laboratory'))
         context['courses'] = Courses.objects.filter(owner__slug=self.kwargs.get('laboratory'))
         return context

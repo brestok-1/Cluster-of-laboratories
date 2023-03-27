@@ -70,7 +70,7 @@ class ProjectsImg(models.Model):
 class Courses(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название курса')
     slug = models.SlugField(max_length=255, db_index=True, unique=True, verbose_name='URL', default='')
-    durations = models.IntegerField(verbose_name='Продолжительность курса (часы)')
+    durations = models.DurationField(verbose_name='Продолжительность курса')
     lector = models.CharField(max_length=255, verbose_name='Имя лектора')
     description = RichTextUploadingField(verbose_name='Описание курса')
     course_link = models.URLField(verbose_name="Ссылка на курс")

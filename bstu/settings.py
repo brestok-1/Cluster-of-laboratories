@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
 
     'cluster',
-    'robotics',
+    'robotics.apps.RoboticsConfig',
 ]
 
 MIDDLEWARE = [
