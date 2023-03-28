@@ -52,29 +52,29 @@
                     Последние проекты:
                 </div>
                 <div class="underline"></div>
-                {% for new in projects %}
+                {% for project in projects %}
                     <section class="wrapper mt-3">
                         <div class="container-fostrap ">
                             <div class="content">
                                 <div class="container">
                                     <div class="row">
                                         <div class="card">
-                                            <a class="img-card" href="">
-                                                <img src="{{ new.get_images.first.img.url }}" class="" alt="">
+                                            <a class="img-card" href="{% url 'robotics:project_detail' project.owner.slug project.slug %}">
+                                                <img src="{{ project.get_images.first.img.url }}" class="" alt="">
                                             </a>
                                             <div class="card-content py-0">
                                                 <h4 class="card-title">
                                                     <a href="">
-                                                        {{ new.name }}
+                                                        {{ project.name }}
                                                     </a>
                                                 </h4>
                                                 <p class="">
                                                     {% autoescape off %}
-                                                        {{ new.description|truncatewords:10 }}{% endautoescape %}
+                                                        {{ project.description|truncatewords:10 }}{% endautoescape %}
                                                 </p>
                                             </div>
                                             <div class="card-read-more">
-                                                <a href=""
+                                                <a href="{% url 'robotics:project_detail' project.owner.slug project.slug %}"
                                                    class="btn btn-block">
                                                     Подробнее
                                                 </a>

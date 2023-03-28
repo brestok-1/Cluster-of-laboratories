@@ -28,7 +28,7 @@ class Technologies(models.Model):
         return TechnologiesImg.objects.filter(owner_id=self.id)
 
     def type(self):
-        return self.owner.name
+        return self.__class__.__name__
 
     class Meta:
         verbose_name = 'Технология'
@@ -49,7 +49,7 @@ class Projects(models.Model):
     owner = models.ForeignKey(to=Laboratory, on_delete=models.CASCADE, verbose_name='Относится к')
 
     def __str__(self):
-        return f'Проект - {self.name} {self.time_created}'
+        return f'Проект - {self.name}'
 
     def type(self):
         return self.__class__.__name__
@@ -73,7 +73,7 @@ class Courses(models.Model):
     durations = models.DurationField(verbose_name='Продолжительность курса')
     lector = models.CharField(max_length=255, verbose_name='Имя лектора')
     description = RichTextUploadingField(verbose_name='Описание курса')
-    course_link = models.URLField(verbose_name="Ссылка на курс")
+    course_link = models.URLField(verbose_name="Ссылка на курс", blank=True)
     owner = models.ForeignKey(to=Laboratory, on_delete=models.CASCADE, verbose_name='Относится к')
 
     def __str__(self):

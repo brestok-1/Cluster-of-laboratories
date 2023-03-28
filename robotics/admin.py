@@ -34,7 +34,3 @@ class CoursesAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
 
-
-@admin.register(Laboratory)
-class Laboratory(admin.ModelAdmin):
-    fields = ('name', 'slug')

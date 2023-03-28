@@ -3,7 +3,7 @@ import re
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, ListView
 
-from common.views import CommonMixin, LaboratoryMixin, DetailMixin, ListMixin
+from common.views import CommonMixin, LaboratoryMixin, DetailMixin, ListMixin, LaboratoryDataMixin
 from robotics.models import *
 
 
@@ -83,3 +83,24 @@ class ListCoursesView(ListMixin, ListView):
 
     def get_queryset(self):
         return Courses.objects.filter(owner__slug=self.kwargs.get('laboratory'))
+
+
+class ProjectDetailView(LaboratoryDataMixin, DetailView):
+    template_name = 'robotics/project_detail.html'
+    model = Projects
+    slug_url_kwarg = 'project_slug'
+    title = 'Проект'
+
+
+class TechnologyDetailView(LaboratoryDataMixin, DetailView):
+    template_name = 'robotics/project_detail.html'
+    model = Technologies
+    slug_url_kwarg = 'tech_slug'
+    title = 'Технология'
+
+
+class CourseDetailView(LaboratoryDataMixin, DetailView):
+    template_name = 'robotics/course_detail.html'
+    model = Courses
+    slug_url_kwarg = 'course_slug'
+    title = 'Курс'

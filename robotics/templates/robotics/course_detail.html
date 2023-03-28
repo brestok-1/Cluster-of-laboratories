@@ -1,9 +1,50 @@
-{% extends  'robotics/laboratory_base.html' %}
+{% extends 'robotics/laboratory_base.html' %}
+{% load static %}
+{% block mainphoto %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active main-photo-box">
+                <img src="
+                {% if main_link == 'robotics' %}{% static 'vendor/img/cluster-photo/robotics.jpg' %}
+                {% elif main_link == 'technical_vision' %}{% static 'vendor/img/cluster-photo/technical_vision.png' %}
+                {% elif main_link == 'agriculture' %}{% static 'vendor/img/cluster-photo/digital_engineering.png' %}
+                {% else %}{% static 'vendor/img/cluster-photo/bim.jpg' %}
+                {% endif %}" class="d-block w-100 main-photo"
+                     alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="py-4 name-title">
+        {% if main_link == 'robotics' %}Промышленная робототехника
+        {% elif main_link == 'technical_vision' %}Техническое зрение
+        {% elif main_link == 'agriculture' %}Цифровой инжиниринг АПК
+        {% else %}Инновации в строительстве
+        {% endif %}
+    </div>
+{% endblock %}
+{% block mainlink %}
+    <a href="{% if main_link == 'robotics' %}{% url 'robotics:robotics' %}
+             {% elif main_link == 'technical_vision' %}{% url 'robotics:technical_vision' %}
+              {% elif main_link == 'agriculture' %}{% url 'robotics:agriculture' %}
+              {% else %}{% url 'robotics:BIM' %}
+               {% endif %}">
+        <div class="left-sidebar-link py-3 my-3 pl-2">
+            Главная
+        </div>
+    </a>
+{% endblock %}
 {% block content %}
-    <div class="text-center fs-3 mt-4">{{ object.name }}</div>
-    <span class="text-black-50">Продолжительность курса - {{ object.durations }} ч.</span>
-    <div class="mt-2 fs-6">Лектор - {{ object.lector }}</div>
-    <p>{{ object.description }}</p>
-    <a href="{{ object.course_link }}">{{ object.course_link }}</a>
+    <div class="mt-3">
+        <div class="underline"></div>
+        <div class="news my-3 text-center">
+            {{ object.name }}
+        </div>
+        <div class="underline"></div>
 
+        <div class="info my-3">
+            {% autoescape off %}{{ object.description }}{% endautoescape %}
+        </div>
+    </div>
 {% endblock %}

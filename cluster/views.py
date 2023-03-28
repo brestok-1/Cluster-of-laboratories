@@ -29,6 +29,7 @@ class OneNewView(ClusterMixin, DetailView):
     template_name = 'cluster/one_new.html'
     slug_url_kwarg = 'new_slug'
     model = News
+    left_sidebar_selected = 'News'
 
     def get_context_data(self, **kwargs):
         context = super(OneNewView, self).get_context_data(**kwargs)
