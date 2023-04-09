@@ -10,7 +10,6 @@ class News(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL', default='')
     time_created = models.DateField(verbose_name='Время создания')
     time_updated = models.DateField(auto_now=True, verbose_name='Время обновления')
-    video_link = models.CharField(max_length=1000, verbose_name='Ссылка на видео', blank=True)
 
     class Meta:
         verbose_name = 'Новость'

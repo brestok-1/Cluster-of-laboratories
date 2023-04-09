@@ -15,7 +15,6 @@ class NewsImgAdmin(admin.TabularInline):
 class NewsAdmin(admin.ModelAdmin):
     inlines = (NewsImgAdmin,)
     search_fields = ('name',)
-    fields = ('name', 'slug', 'description', 'time_created', 'time_updated', 'video_link')
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ('time_updated', )
 

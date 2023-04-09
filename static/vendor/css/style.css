@@ -12,8 +12,8 @@ body {
 }
 
 img {
-    width: 100%!important;
-    height: auto!important;
+    width: 100% !important;
+    height: auto !important;
 }
 
 body:before {
@@ -551,48 +551,44 @@ a, a:hover {
 
 /* footer */
 
-.footer-bg {
-    background-color: #494848;
-}
-
-.footer-2 {
-    background-color: #353535;
-    color: #ffffff;
+footer {
+    background-color: #051a68;
+    color: white;
 }
 
 .footer-head {
-    font-size: 25px;
-    font-weight: 450;
-    color: #ffffff;
-}
-
-.footer-text {
-    font-size: 15px;
-    font-weight: 300;
-    color: #e6e6e6;
+    color: #fff;
+    font-weight: 600;
 }
 
 .line-footer {
-    padding-top: 2px;
-    background-color: #1a8f49;
+    padding-top: 1px;
     width: 70%;
-    box-shadow: 2px 2px 5px 3px rgba(31, 160, 76, 0.2);
+    background: rgb(130, 3, 248);
+    /* background: linear-gradient(273deg, rgba(9,2,129,1) 0%, rgba(2,104,243,1) 95%); */
 }
 
-.footer a,
-.footer li {
-    color: #c8c8c8;
+.footer-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255);
 }
 
-.footer a:hover {
-    color: #fff;
-    text-decoration: underline;
+.footer-text a {
+    color: rgba(255, 255, 255);
 }
 
-.footer-icons {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 25px;
+.footer-text a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-icon {
+    font-size: 1rem;
+}
+
+.footer-2 {
+    font-size: 0.85rem;
+    background-color: #031557;
+
 }
 
 /*Video News*/
@@ -664,10 +660,6 @@ a, a:hover {
     }
 }
 
-
-.info {
-    font-size: 17px;
-}
 
 /* Recent articles */
 /* .border-comment {
@@ -837,7 +829,7 @@ h1.heading {
 
 .img-card img {
     width: 100%;
-    height: 175px!important;
+    height: 175px !important;
     object-fit: cover;
     transition: all .25s ease;
 }
@@ -902,7 +894,7 @@ article a::after {
 article h2 {
     margin: 0 0 18px 0;
     font-family: "Bebas Neue", cursive;
-    font-size: 1.9rem;
+    font-size: 1.7rem;
     letter-spacing: 0.06em;
     color: var(--title-color);
     transition: color 0.3s ease-out;
@@ -917,18 +909,18 @@ figure {
 
 article img {
     max-width: 100%;
+    min-height: 150px;
     transform-origin: center;
     transform: scale(var(--img-scale));
     transition: transform 0.4s ease-in-out;
 }
 
 .article-body {
-    padding: 24px;
+    padding: 10px;
+    font-size: 1rem;
 }
 
 article a {
-    display: inline-flex;
-    align-items: center;
     text-decoration: none;
     color: #28666e;
 }
@@ -965,9 +957,9 @@ Generic layout (demo looks)
     display: grid;
     max-width: 1200px;
     margin-inline: auto;
-    padding-inline: 24px;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
+    padding-inline: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 15px;
 }
 
 @media screen and (max-width: 960px) {
@@ -1025,4 +1017,18 @@ Generic layout (demo looks)
 
 .btn {
     margin-top: auto;
+}
+
+
+@media screen and (min-width: 768px) {
+    .truncate {
+        height: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .truncate-right-sidebar {
+        height: 72px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

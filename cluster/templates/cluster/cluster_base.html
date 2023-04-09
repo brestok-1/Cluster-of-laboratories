@@ -81,10 +81,9 @@
                                                         {{ new.name }}
                                                     </a>
                                                 </h4>
-                                                <p class="">
-                                                    {% autoescape off %}
-                                                        {{ new.description|truncatewords:10 }}{% endautoescape %}
-                                                </p>
+                                                <div class="truncate-right-sidebar">
+                                                        {{ new.description|safe }}
+                                                </div>
                                             </div>
                                             <div class="card-read-more">
                                                 <a href="{% url 'cluster:one_new' new.slug %}"

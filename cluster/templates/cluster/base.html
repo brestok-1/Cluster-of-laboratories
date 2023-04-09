@@ -109,39 +109,67 @@
 
 <!-- Footer -->
 
-
 <footer>
-    <section class="footer d-none d-md-block">
+    <section class="footer">
         <div class="container-fluid">
-            <div class="row p-0 footer-bg justify-content-around">
-                <div class="col-3 py-3">
-                    <div class="footer-head my-3 text-uppercase text-center">
-                        Местонахождение
+            <div class="row p-0 justify-content-around mx-md-2">
+                <div class="col-6 col-md-3 py-3">
+                    <div class="footer-head my-3 text-uppercase">
+                        Центр
                     </div>
                     <div class="line-footer my-3 "></div>
                     <div class="footer-text mt-4">
-                        Республика Беларусь, Брест, ул. Московская 267
+                        <p>Центр цифровизации.</p>
+                        <p>Научно-исследовательская часть БрГТУ.</p>
+                        Республика Беларусь, Брест, ул. Московская 267.
                     </div>
                 </div>
-                <div class="col-3 py-3">
-                    <div class="footer-head my-3 text-uppercase text-center">
-                        Контакты
-                    </div>
-                    <div class="line-footer my-2"></div>
-                    <div class="footer-text mt-4 d-flex justify-content-between">
-                        <a href="" class="footer-icons"><i class="fab fa-facebook-f"></i></a>
-                        <a href="" class="footer-icons"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="" class="footer-icons"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="col-3 py-3">
-                    <div class="footer-head my-3 text-uppercase text-center">
-                        О нас
+                <div class=" col-6 col-md-3 py-3">
+                    <div class="footer-head my-3 text-uppercase">
+                        Лаборатории
                     </div>
                     <div class="line-footer my-2"></div>
                     <div class="footer-text mt-4">
-                        Центр цифровизации <br>
-                        Научно-исследовательская часть БрГТУ
+                        <p><a href="{% url 'robotics:robotics' %}">Промышленная Робототехника</a></p>
+                        <p><a href="{% url 'robotics:agriculture' %}">Цифровой Инжиниринг АПК</a></p>
+                        <p><a href="{% url 'robotics:BIM' %}">Инновации в Строительстве</a></p>
+                        <p><a href="{% url 'robotics:technical_vision' %}">Техническое Зрение</a></p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 py-3">
+                    <div class="footer-head my-3 text-uppercase">
+                        Полезные ссылки
+                    </div>
+                    <div class="line-footer my-2"></div>
+                    <div class="footer-text mt-4">
+                        <p><a href="">Ссылка 1</a></p>
+                        <p><a href="">Ссылка 2</a></p>
+                        <p><a href="">Ссылка 3</a></p>
+                        <p><a href="">Ссылка 4</a></p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 py-3">
+                    <div class="footer-head my-3 text-uppercase">
+                        Контакты
+                    </div>
+                    <div class="line-footer my-2"></div>
+                    <div class="footer-text mt-4">
+                        <p><a href="https://www.youtube.com/@BrestRoboticsLab" class="d-flex align-items-center mr-4">
+                            <span class="icon-youtube-play mr-3 footer-icon"></span>
+                            <span class="d-md-inline-block">YouTube</span>
+                        </a></p>
+                        <p><a href="https://instagram.com/brest_robotics_lab?igshid=YmMyMTA2M2Y=" class="d-flex align-items-center mr-4">
+                            <span class="icon-instagram mr-3 footer-icon"></span>
+                            <span class="d-md-inline-block">Instagram</span>
+                        </a></p>
+                        <p><a href="mailto:nis@bstu.by" class="d-flex align-items-center mr-4">
+                            <span class="icon-envelope mr-3 footer-icon"></span>
+                            <span class="d-md-inline-block">nis@bstu.by</span>
+                        </a></p>
+                        <a href="tel:+375162321802" class="d-flex align-items-center mr-auto">
+                            <span class="icon-phone mr-3 footer-icon"></span>
+                            <span class="d-md-inline-block">+375 (16) 232-18-02</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -153,6 +181,8 @@
         </div>
     </div>
 </footer>
+
+
 <!-- Fontawesome -->
 <script src="{% static 'vendor/js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'vendor/js/popper.min.js' %}"></script>

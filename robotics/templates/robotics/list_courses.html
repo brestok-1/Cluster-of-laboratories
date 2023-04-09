@@ -54,7 +54,7 @@
                             </div>
                             <div class="text-black-50 ">Продолжительность : {{ course.durations }}</div>
                             <div class="mt-2 h6">
-                                {% autoescape off %}{{ course.description|truncatechars:150 }}{% endautoescape %}
+                                {{ course.description|safe|truncatechars:150 }}
                             </div>
                         </div>
                     </div>

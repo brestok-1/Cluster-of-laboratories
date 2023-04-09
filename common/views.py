@@ -17,8 +17,8 @@ class ClusterMixin:
     def get_context_data(self, **kwargs):
         context = super(ClusterMixin, self).get_context_data(**kwargs)
         context['left_sidebar_selected'] = self.left_sidebar_selected
-        context['news_list'] = News.objects.all()[:5]
-        context['projects'] = Projects.objects.all()[:5]
+        context['news_list'] = News.objects.all()[:3]
+        context['projects'] = Projects.objects.all()[:3]
         return context
 
 
@@ -80,10 +80,6 @@ class LaboratoryDataMixin:
         context['courses'] = Courses.objects.filter(owner__slug=self.kwargs['laboratory'])
         context['technologies'] = Technologies.objects.filter(owner__slug=self.kwargs['laboratory'])
         context['selected'] = self.object.owner.name
-        print(self.object)
-        print(self.object)
-        print(self.object)
-        print(self.object)
         if self.object.type() == 'Technologies':
             context['left_sidebar_selected'] = 'technologies'
         elif self.object.type() == 'Projects':

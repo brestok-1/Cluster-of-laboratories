@@ -1,11 +1,128 @@
 {% extends 'robotics/laboratory_base.html' %}
-{% block aboutlaboratorylink %}
-    <a href="{% url 'robotics:technical_vision' %}" class="list-group-item list-group-item-action ">О
-        лаборатории</a>
+{% load static %}
+
+{% block mainphoto %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active main-photo-box">
+                <img src="{% static 'vendor/img/cluster-photo/technical_vision.png' %}"
+                     class="d-block w-100 main-photo"
+                     alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="py-4 name-title">
+        Техническое зрение
+    </div>
+{% endblock %}
+
+
+{% block mainlink %}
+    <a href="{% url 'robotics:technical_vision' %}">
+        <div class="left-sidebar-link py-3 my-3 pl-2">
+            Главная
+        </div>
+    </a>
 {% endblock %}
 
 {% block content %}
-    <h1 class="text-center mt-4">Техническое зрение</h1>
-    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae corporis deserunt, dicta, eligendi eum in ipsum necessitatibus porro, quia saepe sapiente ullam vitae. At consequuntur eveniet, harum maiores nam possimus!</span><span>Cupiditate dignissimos ex fugiat illo impedit laudantium ratione repudiandae unde? Accusamus animi beatae cum distinctio eius enim error, facilis fuga hic in magni maxime nesciunt nostrum, quia quidem suscipit veritatis.</span><span>Adipisci aspernatur blanditiis culpa distinctio doloremque dolores ex in, inventore ipsum itaque iure magnam maxime nam nemo neque nobis nostrum odit reiciendis repellendus repudiandae saepe, sed sequi tempora unde veritatis.</span><span>Blanditiis debitis dolorem eveniet, iure odio repellat voluptatum? Ab accusamus facilis, in incidunt quas recusandae unde? Blanditiis dicta earum error itaque laboriosam maiores, minima obcaecati reprehenderit sed totam ut, voluptatibus.</span><span>Consequuntur dolorum facere ipsa, laudantium magni minus nemo placeat praesentium quaerat tenetur. Alias aspernatur commodi doloremque dolores est exercitationem, iste iure nostrum perspiciatis praesentium quam rem rerum saepe, soluta voluptatem?</span><span>Alias assumenda dignissimos doloremque earum est expedita ipsam maxime natus officiis, possimus quibusdam quidem quos repellendus saepe tenetur totam veritatis voluptate? Consequatur doloremque iusto molestiae nam repellendus repudiandae rerum ullam?</span><span>Adipisci atque beatae commodi cum delectus deleniti, dicta dolorem eligendi expedita facilis impedit incidunt labore laboriosam minus modi odio officia officiis quisquam quod rerum sed, sint suscipit, tempore ullam veniam!</span><span>Ad aliquam animi architecto assumenda blanditiis, cupiditate, ducimus eius eligendi enim explicabo laudantium modi nemo perspiciatis quis reiciendis reprehenderit repudiandae rerum saepe, similique soluta. Eos facilis illo nihil repudiandae. Est.</span><span>Alias, consectetur est itaque iusto labore laboriosam molestiae neque, nisi placeat provident qui rem saepe sapiente totam ut? Corporis deleniti dolores, doloribus eos libero nemo nisi quam tempore ullam ut.</span><span>Amet consequatur consequuntur debitis distinctio, dolor dolorem earum eos expedita illum ipsa minus odio placeat possimus quidem, repellat repellendus sapiente suscipit tenetur vel voluptatem! Enim iste necessitatibus nobis nulla reprehenderit.</span>
-    </p>
+    <div class="my-3">
+        <div class="underline"></div>
+        <div class="news my-3">
+            О лаборатории:
+        </div>
+        <div class="underline mb-3"></div>
+        <p>Отраслевая лаборатория “Системы идентификации и промышленная робототехника” - лаборатория БрГТУ в области
+            проектирования и разработки проектов по промышленной маркировки продукта в соответствии с системами «Честный
+            знак» и «Электронный знак», контролю качества продукции и автоматизации производственных площадок
+            предприятий.
+        </p>
+        Цели лаборатории
+        <ul>
+            <li>Выполнение научно-исследовательских работ в области промышленной маркировки и цифровой идентификации в
+                области пищевой промышленности;
+            </li>
+            <li>Моделирование процессов нанесения, верификации, идентификации, агрегации кодов промышленной маркировки
+                для производственных линий;
+            </li>
+            <li>Разработка, изготовление и испытание опытных образцов автоматизации производственных процессов с
+                применением промышленных роботов и инструментов машинного зрения;
+            </li>
+            <li>Разработка технических решений в области контроля качества продукции;</li>
+            <li>Подготовка и переподготовка кадров в области промышленной робототехники, автоматизации технологических
+                процессов, цифрового инжиниринга, компьютерного моделирования и цифровых двойников
+            </li>
+        </ul>
+        Направления работы
+        <ul>
+            <li>Создание научно-методической базы данных для проведения фундаментальных и прикладных научных
+                исследований
+            </li>
+            <li>Проведение тематических семинаров - практикумов, консультаций для преподавателей, аспирантов и студентов
+                Университета, специалистов в области промышленной робототехники и маркировки;
+            </li>
+            <li>Разработка, изготовление и испытание опытных образцов автоматизации производственных процессов с
+                применением промышленных роботов и инструментов машинного зрения;
+            </li>
+            <li>Участие в разработке стандартов для новых технологий</li>
+            <li>Реализация политики в области качества (внедрение системы менеджмента качества);
+            </li>
+            <li>Консультирование предприятий по вопросам развития производственных процессов, совершенствования
+                технологий
+            </li>
+            <li>Повышение кадрового потенциала предприятий</li>
+        </ul>
+        Состав лаборатории
+        <ul>
+            <li>Заведующий лабораторией - Лапич Сергей Вячеславович, старший преподаватель кафедры электронных
+                вычислительных машин и систем;
+            </li>
+            <li>Инженер - Дричиц Никита Игоревич;</li>
+            <li>Инженер-конструктор - Гаврилюк Виталий Сергеевич;</li>
+            <li>Младшие научные сотрудники и стажеры младших научных сотрудников;</li>
+            <li>Студенты и магистранты следующих специальностей: вычислительные машины системы и сети, промышленная
+                электроника, искусственный интеллект, программируемые мобильные системы.
+            </li>
+        </ul>
+        Применяемые технологии
+        <ul>
+            <li>Программное обеспечение HALCON;</li>
+            <li>Программное обеспечение Deep Learning Tools;</li>
+            <li>Программное обеспечение Visual Components</li>
+            <li>Среда для работы с изображением CorelDRAW</li>
+            <li>Среда для разработки моделей лазерной гравировки - MaxiGraf</li>
+            <li>Среда для формирования дизайна этикеток: Bartender, NiceLabel, LabelStar, Colos.</li>
+        </ul>
+        Оборудование лаборатории
+        <ul>
+            <li>Камера технического зрения Cognex DM374X</li>
+            <li>Камера технического зрения Cognex In-sight 905M</li>
+            <li>Свободно программируемая камера технического зрения</li>
+            <li>Лазерный гравер minimarker 2</li>
+            <li>Верификатор Rea Verifier VeriCube</li>
+            <li>Коллаборативный робот упаковщик базе Universal Robots</li>
+            <li>Стенд для тестирования печати промышленных кодов;</li>
+            <li>Стенд для тестирования считывания средств идентификации;</li>
+            <li>Обучающий стенд с промышленным контроллером.</li>
+        </ul>
+        СМИ о лаборатории:
+        <ul>
+            <li>
+                <a href="https://old.bstu.by/otraslevaya-laboratoriya-sistemy-identifikatsii-i-promyshlennaya-robototehnika">https://old.bstu.by/otraslevaya-laboratoriya-sistemy-identifikatsii-i-promyshlennaya-robototehnika
+                </a></li>
+            <li><a href="https://www.belta.by/regions/view/otraslevuju-laboratoriju-identifikatsii-i-promyshlennoj-robototehniki-otkryli-v-brgtu-478147-2022/">https://www.belta.by/regions/view/otraslevuju-laboratoriju-identifikatsii-i-promyshlennoj-robototehniki-otkryli-v-brgtu-478147-2022/
+</a></li>
+            <li><a href="https://old.bstu.by/seminar-sistema-markirovki-pervye-rezultaty-problemy-resheniya">https://old.bstu.by/seminar-sistema-markirovki-pervye-rezultaty-problemy-resheniya</a></li>
+            <li><a href="https://old.bstu.by/seminar-opyt-vnedreniya-reshenij-po-avtomatizatsii-v-pischevom-proizvodstve">https://old.bstu.by/seminar-opyt-vnedreniya-reshenij-po-avtomatizatsii-v-pischevom-proizvodstve</a></li>
+            <li><a href="https://mpt.gov.by/en/node/7880">https://mpt.gov.by/en/node/7880</a></li>
+            <li><a href="https://news.bstu.by/2021/06/01/междунароный-форум-тибо-2021/">https://news.bstu.by/2021/06/01/междунароный-форум-тибо-2021/</a></li>
+        </ul>
+        <p>Контакты</p>
+        Отраслевая лаборатория “Системы идентификации и промышленная робототехника”
+        <p>224017, ул. Московская, 267, корпус 3, ауд. 127б</p>
+        <a href="tel:+375336092771">+375336092771</a><br>
+        <a href="mailto:svlapich.bstu@gmail.com">svlapich.bstu@gmail.com</a>
+    </div>
 {% endblock %}

@@ -53,19 +53,24 @@
                             </figure>
                             <div class="article-body">
                                 <h2>{{ object.name }}</h2>
-                                <p>
-                                    {% autoescape off %}
-                                        {{ object.description|truncatechars:100 }}{% endautoescape %}
-                                </p>
-                                <a href="{% if object.type == 'Projects' %}{% url 'robotics:project_detail' object.owner.slug object.slug %}
-                                         {% else %}{% url 'robotics:tech_detail' object.owner.slug object.slug %}{% endif %}" class="read-more">
-                                    Подробнее <span class="sr-only">об этой новости</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
-                                         fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                              clip-rule="evenodd"/>
-                                    </svg>
+                                <div class="truncate">
+                                    {{ object.description|safe }}
+                                </div>
+{#                                <a href="{% if object.type == 'Projects' %}{% url 'robotics:project_detail' object.owner.slug object.slug %}#}
+{#                                    {% else %}{% url 'robotics:tech_detail' object.owner.slug object.slug %}{% endif %}" class="read-more">#}
+{#                                    Read more <span class="sr-only">about this is some title</span>#}
+{#                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"#}
+{#                                         fill="currentColor">#}
+{#                                        <path fill-rule="evenodd"#}
+{#                                              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"#}
+{#                                              clip-rule="evenodd"/>#}
+{#                                    </svg>#}
+{#                                </a>#}
+                                <a href="
+                                        {% if object.type == 'Projects' %}{% url 'robotics:project_detail' object.owner.slug object.slug %}
+                                         {% else %}{% url 'robotics:tech_detail' object.owner.slug object.slug %}{% endif %}"
+                                   class="read-more mt-md-1">
+                                    <span class="sr-only">об этой новости</span>
                                 </a>
                             </div>
                         </div>
