@@ -53,10 +53,12 @@
                 </div>
                 <div class="col-6 text-right">
                     <div class="mr-auto">
-{#                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>#}
-{#                        <a href="#" class="p-2 pl-0"><span class="icon-vk"></span></a>#}
-                        <a href="https://www.youtube.com/@BrestRoboticsLab" class="p-2 pl-0 "><span class="icon-youtube-play"></span></a>
-                        <a href="https://instagram.com/brest_robotics_lab?igshid=YmMyMTA2M2Y=" class="p-2 pl-0"><span class="icon-instagram"></span></a>
+                        {#                        <a href="#" class="p-2 pl-0"><span class="icon-twitter"></span></a>#}
+                        {#                        <a href="#" class="p-2 pl-0"><span class="icon-vk"></span></a>#}
+                        <a href="https://www.youtube.com/@BrestRoboticsLab" class="p-2 pl-0 "><span
+                                class="icon-youtube-play"></span></a>
+                        <a href="https://instagram.com/brest_robotics_lab?igshid=YmMyMTA2M2Y=" class="p-2 pl-0"><span
+                                class="icon-instagram"></span></a>
                     </div>
 
                 </div>
@@ -84,8 +86,17 @@
                                 <li class="{% if selected == 'Лаборатория "Цифровой инжиниринг АПК"' %}active{% endif %}">
                                     <a href="{% url 'robotics:agriculture' %}" class="nav-link ">Цифровой инжиниринг
                                         АПК</a></li>
-                                <li class="{% if selected == 'Лаборатория "Инновации в строительстве"' %}active{% endif %}"><a
-                                        href="{% url 'robotics:BIM' %}" class="nav-link ">Инновации в строительстве</a>
+{#                                <li class="{% if selected == 'Лаборатория "Инновации в строительстве"' %}active{% endif %}">#}
+{#                                    <a href="{% url 'robotics:BIM' %}" class="nav-link ">Инновации в#}
+{#                                        строительстве</a>#}
+{#                                </li>#}
+                                <li class="has-children {% if selected == 'Лаборатория "Инновации в строительстве"' %}active{% endif %}">
+                                    <a href="{% url 'robotics:BIM' %}" class="nav-link">Инновации в
+                                        строительстве</a>
+                                    <ul class="dropdown arrow-top">
+                                        <li><a href="{% url 'robotics:BIM' %}" class="nav-link">НИЦИС</a></li>
+                                        <li><a href="{% url 'robotics:testing_center' %}" class="nav-link">Испытательный центр</a></li>
+                                    </ul>
                                 </li>
                                 <li class="{% if selected == 'Лаборатория "Техническое зрение"' %}active{% endif %}"><a
                                         href="{% url 'robotics:technical_vision' %}" class="nav-link ">Техническое
@@ -158,7 +169,8 @@
                             <span class="icon-youtube-play mr-3 footer-icon"></span>
                             <span class="d-md-inline-block">YouTube</span>
                         </a></p>
-                        <p><a href="https://instagram.com/brest_robotics_lab?igshid=YmMyMTA2M2Y=" class="d-flex align-items-center mr-4">
+                        <p><a href="https://instagram.com/brest_robotics_lab?igshid=YmMyMTA2M2Y="
+                              class="d-flex align-items-center mr-4">
                             <span class="icon-instagram mr-3 footer-icon"></span>
                             <span class="d-md-inline-block">Instagram</span>
                         </a></p>

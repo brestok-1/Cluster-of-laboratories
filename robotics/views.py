@@ -28,7 +28,25 @@ class AgricultureView(LaboratoryMixin, TemplateView):
     title = 'Лаборатория "Цифровой инжиниринг АПК"'
 
 
+class TestingCenterView(TemplateView):
+    template_name = 'robotics/testing_index.html'
+    title = 'Испытательный Центр'
+    left_sidebar_selected = 'Testing Center'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.title
+        context['left_sidebar_selected'] = self.left_sidebar_selected
+        context['selected'] = 'Лаборатория "Инновации в строительстве"'
+        context['technologies'] = Technologies.objects.filter(owner__name='Лаборатория "Инновации в строительстве"')
+        context['projects'] = Projects.objects.filter(owner__name='Лаборатория "Инновации в строительстве"')
+        context['courses'] = Courses.objects.filter(owner__name='Лаборатория "Инновации в строительстве"')
+        # context['stop_list'] = 'stop'
+        return context
+
 # class TechnologyView(DetailMixin, DetailView):
+
+
 #     template_name = 'robotics/tech_detail.html'
 #     slug_url_kwarg = 'tech_slug'
 #     model = Technologies

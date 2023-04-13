@@ -16,6 +16,15 @@
 
                     {% endblock %}
                 </div>
+                {% if selected == 'Лаборатория "Инновации в строительстве"' %}
+                    <div class="left-sidebar {% if left_sidebar_selected == 'Testing Center' %}left-sidebar-active{% endif %}">
+                        <a href="{% url 'robotics:testing_center' %}">
+                            <div class="left-sidebar-link py-3 my-3 pl-2">
+                                Испытательный центр
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
                 <div class="left-sidebar {% if left_sidebar_selected == 'projects' %} left-sidebar-active {% endif %}">
                     <a href="{% url 'robotics:list_projects' projects.first.owner.slug %}">
                         <div class="left-sidebar-link py-3 my-3 pl-2">
@@ -70,7 +79,7 @@
                                                     </a>
                                                 </h4>
                                                 <div class="truncate-right-sidebar">
-                                                        {{ project.description|safe }}
+                                                    {{ project.description|safe }}
                                                 </div>
                                             </div>
                                             <div class="card-read-more">

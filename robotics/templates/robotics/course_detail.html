@@ -18,9 +18,9 @@
     </div>
     <div class="py-4 name-title">
         {% if main_link == 'robotics' %}Промышленная робототехника
-        {% elif main_link == 'technical_vision' %}Техническое зрение
+        {% elif main_link == 'technical_vision' %}Отраслевая лаборатория "Системы идентификации и промышленная робототехника"
         {% elif main_link == 'agriculture' %}Цифровой инжиниринг АПК
-        {% else %}Инновации в строительстве
+        {% else %}Научно-исследовательский центр Инноваций в строительстве
         {% endif %}
     </div>
 {% endblock %}
@@ -44,7 +44,7 @@
         <div class="underline"></div>
 
         <div class="info my-3">
-            {% autoescape off %}{{ object.description }}{% endautoescape %}
+            {{ object.description|safe }}
         </div>
     </div>
 {% endblock %}
