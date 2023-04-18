@@ -1,6 +1,7 @@
 '''    Абстрактные классы моделей для лабораторий     '''
 import uuid
 
+from PIL import Image
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -38,6 +39,17 @@ class TechnologiesImg(models.Model):
     img = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, verbose_name='Изображение')
     owner = models.ForeignKey(to=Technologies, on_delete=models.CASCADE)
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.img.path)
+        width, height = img.size
+        if width / height > 4 / 3:
+            new_width = int(height * 4 / 3)
+            left = int((width - new_width) / 2)
+            right = int(left + new_width)
+            img = img.crop((left, 0, right, height))
+            img.save(self.img.path)
+
 
 class Projects(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название проекта")
@@ -63,6 +75,17 @@ class Projects(models.Model):
 class ProjectsImg(models.Model):
     owner = models.ForeignKey(to=Projects, on_delete=models.CASCADE)
     img = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, verbose_name='Изображение')
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.img.path)
+        width, height = img.size
+        if width / height > 4 / 3:
+            new_width = int(height * 4 / 3)
+            left = int((width - new_width) / 2)
+            right = int(left + new_width)
+            img = img.crop((left, 0, right, height))
+            img.save(self.img.path)
 
 
 class Courses(models.Model):

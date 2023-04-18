@@ -1,5 +1,7 @@
+from PIL import Image
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+
 
 # Create your models here.
 
@@ -36,6 +38,17 @@ class NewsImg(models.Model):
     def __str__(self):
         return f'Изображение {self.id}'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        width, height = img.size
+        if width / height > 4 / 3:
+            new_width = int(height * 4 / 3)
+            left = int((width - new_width) / 2)
+            right = int(left + new_width)
+            img = img.crop((left, 0, right, height))
+            img.save(self.image.path)
+
 
 class Students(models.Model):
     title = models.CharField(max_length=255, verbose_name='Вопросы студентов')
@@ -48,4 +61,3 @@ class Students(models.Model):
 
     def __str__(self):
         return f'Вопрос : {self.title}'
-

@@ -153,10 +153,10 @@
                     </div>
                     <div class="line-footer my-2"></div>
                     <div class="footer-text mt-4">
-                        <p><a href="">Ссылка 1</a></p>
-                        <p><a href="">Ссылка 2</a></p>
-                        <p><a href="">Ссылка 3</a></p>
-                        <p><a href="">Ссылка 4</a></p>
+                        <p><a href="{% url 'index' %}">Главная</a></p>
+                        <p><a href="{% url 'cluster:list_news' %}">Новости</a></p>
+                        <p><a href="{% url 'index' %}">Экскурсия</a></p>
+                        <p><a href="{% url 'index' %}">Местонахождение</a></p>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 py-3">
@@ -204,5 +204,6 @@
 <script src="https://kit.fontawesome.com/d4ffd37f75.js" crossorigin="anonymous"></script>
 <!-- My JS -->
 <script src="{% static 'vendor/js/main.js' %}"></script>
+<script src="{% static 'vendor/js/main2.js' %}"></script>
 </body>
 </html>

@@ -15,57 +15,162 @@
         <div class="underline"></div>
 
         <div class="info my-3">
-            Научно-технический центр цифровых технологий Брестского государственного технического университета – лидер в
-            сфере разработок инновационных технологий, систем, изделий, оборудования и продуктов на основе современных
-            цифровых технологий (цифровой инжиниринг, моделирование, сканирование, компьютерные технологии оптимизации,
-            аддитивные технологии)
-            <p></p>
-            Цели:
-            <ul>
+            <div class="border-main px-2 py-3 ">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Научно-технический центр цифровых технологий Брестского
+                государственного технического университета – лидер в
+                сфере разработок инновационных технологий, систем, изделий, оборудования и продуктов на основе
+                современных
+                цифровых технологий (цифровой инжиниринг, моделирование, сканирование, компьютерные технологии
+                оптимизации,
+                аддитивные технологии)
+            </div>
+
+            <div class="section-title text-center mt-4">Цели</div>
+
+            <ol class="gradient-list">
                 <li>Поддержка цифровой трансформации и внедрения цифровых технологий на предприятиях Республики
-                    Беларусь
+                    Беларусь.
                 </li>
                 <li>Оказание консалтинговых услуг для предприятий в области цифровизации и внедрения новых
-                    производственных технологий
+                    производственных технологий.
                 </li>
-                <li>Систематическая подготовка и переподготовка кадров по направлению цифровые технологии производства
+                <li>Систематическая подготовка и переподготовка кадров по направлению цифровые технологии
+                    производства.
                 </li>
                 <li>Разработка комплексных отраслевых решений в области цифровых производственных технологий, элементов
-                    и систем
-                    Индустрии 4.0 для предприятий
+                    и систем Индустрии 4.0 для предприятий.
                 </li>
-            </ul>
-            {#            <div class="underline"></div>#}
-            Состав центра:
-            <ul>
-                <li>Учебная научно-практическая лаборатория “Промышленная робототехника”</li>
-                <li>Отраслевая лаборатория “Системы идентификации и промышленная робототехника ”</li>
-                <li>Научная лаборатория “Цифровой инжиниринг в агро-промышленном комплексе”</li>
-                <li>Отраслевая лаборатория “Технологии строительных конструкций”</li>
-            </ul>
-            {#            <div class="underline"></div>#}
-            Заказчики и партнеры: <br>
-            Центр активно сотрудничает с организациями и предприятиями Республики Беларусь в различных областях.
+            </ol>
+
+
+            <div class="section-title text-center mt-4">Состав цента</div>
+
+            <div class="">
+                <div class="row px-md-3 mt-4 ">
+
+                    <div class="col-lg-6 p-0">
+                        <a href="{% url 'robotics:robotics' %}">
+                            <div class="hover hover-2 text-white "><img
+                                    src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-1.jpg" alt="">
+                                <div class="hover-overlay"></div>
+                                <div class="hover-2-content px-5 py-4">
+                                    <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"><span
+                                            class="font-weight-light">Промышленная робототехника</span></h3>
+                                    <p class="hover-2-description mb-0">Учебная научно-практическая лаборатория</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-6 p-0">
+                        <a href="{% url 'robotics:agriculture' %}">
+                            <div class="hover hover-2 text-white "><img
+                                    src="{% static 'vendor/img/labrotories-logo/agriculture.png' %}" alt="">
+                                <div class="hover-overlay"></div>
+                                <div class="hover-2-content px-5 py-4">
+                                    <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"><span
+                                            class="font-weight-light">Цифровой Инжиниринг апк</span></h3>
+                                    <p class="hover-2-description mb-0">Научная лаборатория</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- DEMO 2 Item-->
+                    <div class="col-lg-6 mb-lg-0 p-0">
+                        <a href="{% url 'robotics:BIM' %}" class="">
+                            <div class="hover hover-2 text-white"><img
+                                    src="{% static 'vendor/img/labrotories-logo/biiim.png' %}" alt="">
+                                <div class="hover-overlay"></div>
+                                <div class="hover-2-content px-5 py-4">
+                                    <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"><span
+                                            class="font-weight-light">НИЦИС</span></h3>
+                                    <p class="hover-2-description  mb-0">Отраслевая лаборатория</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- DEMO 2 Item-->
+                    <div class="col-lg-6 p-0">
+                        <a href="{% url 'robotics:technical_vision' %}">
+                            <div class="hover hover-2 text-white"><img
+                                    src="https://bootstrapious.com/i/snippets/sn-img-hover/hoverSet-1.jpg" alt="">
+                                <div class="hover-overlay"></div>
+                                <div class="hover-2-content px-5 py-4">
+                                    <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"><span
+                                            class="font-weight-light">Техническое Зрение</span></h3>
+                                    <p class="hover-2-description mb-0">Отраслевая лаборатория</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="section-title text-center mt-4">Заказчики и Партнеры</div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Центр активно сотрудничает с организациями и предприятиями
+            Республики Беларусь в различных областях.
             Ключевыми заказчиками центра являются известные предприятия: ОАО Савушкин продукт, ООО Санта Бремор СП, ОАО
             Минский молочный завод №1, ОАО Купалинка, ОАО Берестейский пекарь и др. <br>
-            Для успешного выполнения проектов центр привлекает партнеров: ООО Системы промышленной автоматизации, ООО
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Для успешного выполнения проектов центр привлекает
+            партнеров: ООО Системы промышленной автоматизации, ООО
             Технологии точного земледелия, ООО ТэксаСтрой, ООО ИТ-Энерджи, ООО Розум Роботикс, ОДО Юкола-Инфо-Брест, ООО
-            Концерн Р-про
-            {#            <div class="underline"></div>#}
+            Концерн Р-про <br><br>
+            <div class="marquee my-3">
+                <ul class="marquee-content">
+                    <li class="px-2"><a href="https://www.savushkin.com/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/savushkin.png' %}" alt=""/></a></li>
+
+                    <li class="px-2"><a href="https://www.bremor.com/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/santa_bremor.jpg' %}" alt=""/></a></li>
+
+                    <li class="px-2"><a href="http://teksa.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/teksastroi.png' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="https://www.belmilk.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/minskii-molochhnii-zavod.png' %}" alt=""/></a>
+                    </li>
+                    <li class="px-2"><a href="https://kupalinka.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/kupalinka.png' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="http://bhp.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/brest-pekar.jpeg' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="https://sia.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/sia_logo.png' %}" alt=""/></a></li>
+
+                    <li class="px-2"><a href="https://ttz.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/ttz.jpg' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="http://itenergy.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/it-energy.png' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="https://rozum.com/ru/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/rozum.png' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="https://1soft.by/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/katya-kola.png' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="https://www.r-p-c.ru/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/tima-pro.jpg' %}" alt=""/></a></li>
+                    <li class="px-2"><a href="https://santaholding.com/" target="_blank"><img
+                            src="{% static 'vendor/img/partners-photo/santa-group.jpg' %}" alt=""/></a></li>
+                </ul>
+            </div>
             <p></p>
-            Технологии и ресурсы центра:
-            <ul>
-                <li>Инструменты для цифрового инжиниринга: Visual Components, Рациональное производство, Autodesk Revit,
-                    Autodesk Inventor, Компас3D, CoppeliaSim, COMSOL Multiphysics
-                </li>
-                <li>Центр оснащен современным оборудованием: коллаборативные роботы UR16, TM12, Pulse70, робот-трипод
-                    STS-40,
-                    3D-принтер Ultimaker 5S, 3D-сканер, лазерный гравер и др.
-                </li>
-            </ul>
-            СМИ о центре:
-            <ul>
-                <li><a href="https://www.sb.by/articles/pro-robotov-spirometr-i-stabilometricheskuyu-platformu.html">https://www.sb.by/articles/pro-robotov-spirometr-i-stabilometricheskuyu-platformu.html</a>
+            <div class="section-title text-center mt-4">Технологии и ресурсы</div>
+
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Инструменты для цифрового инжиниринга: Visual
+                Components, Рациональное производство, Autodesk Revit,
+                Autodesk Inventor, Компас3D, CoppeliaSim, COMSOL Multiphysics
+            </p>
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Центр оснащен современным оборудованием: коллаборативные
+                роботы UR16, TM12, Pulse70, робот-трипод STS-40,
+                3D-принтер Ultimaker 5S, 3D-сканер, лазерный гравер и др.
+            </p>
+
+            <div class="section-title text-center mt-4">СМИ о Центре</div>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-regular fa-newspaper"></i><a href="https://www.sb.by/articles/pro-robotov-spirometr-i-stabilometricheskuyu-platformu.html"
+                       target="_blank">Про роботов, спирометр и стабилометрическую платформу</a>
                 </li>
             </ul>
 
@@ -73,18 +178,6 @@
         {#        <iframe width="100%" height="640" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" src="https://kuula.co/share/collection/7FMrc?logo=1&info=1&fs=1&vr=0&zoom=1&thumbs=1"></iframe>#}
         {#        <a href="https://kuula.co/share/collection/7FMrc?logo=1&info=1&fs=1&vr=0&zoom=1&thumbs=1" class="mt-5">https://kuula.co/share/collection/7FMrc?logo=1&info=1&fs=1&vr=0&zoom=1&thumbs=1</a>#}
 
-        <div class="marquee">
-            <ul class="marquee-content">
-                <li><a href="https://www.youtube.com" target="_blank"><img
-                        src="{% static 'vendor/img/cluster-photo/bim.jpg' %}" alt=""/></a></li>
-                <li><a href="https://www.google.com" target="_blank"><img
-                        src="{% static 'vendor/img/cluster-photo/cluster.jpg' %}" alt=""/></a></li>
-                <li><a href="https://www.microsoft.com" target="_blank"><img
-                        src="{% static 'vendor/img/cluster-photo/digital_engineering.png' %}" alt=""/></a></li>
-                <li><a href="https://www.apple.com" target="_blank"><img
-                        src="{% static 'vendor/img/cluster-photo/robotics.jpg' %}" alt=""/></a></li>
-            </ul>
-        </div>
     </div>
 
 

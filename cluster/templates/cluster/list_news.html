@@ -20,9 +20,9 @@
                         </figure>
                         <div class="article-body">
                             <h2>{{ object.name }}</h2>
-                            <p>
-                                {% autoescape off %}{{ object.description|truncatechars:100 }}{% endautoescape %}
-                            </p>
+                            <div class="truncate">
+                                {{ object.description|safe }}
+                            </div>
                             <a href="{% url 'cluster:one_new' object.slug %}" class="read-more">
                                 Подробнее <span class="sr-only">об этой новости</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
